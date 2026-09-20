@@ -1,0 +1,253 @@
+/* ============================================================
+   TERRANOVA MAP — RESPONSIVE STYLES
+   ============================================================ */
+
+/* Hamburger for map page */
+.map-hamburger-btn {
+  display: none;
+  position: fixed;
+  top: 12px;
+  right: 80px; /* To the left of the sidebar strip */
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.map-hamburger-btn span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--moroccan-gold, #C9A227);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Ensure all overlays are well-contained on mobile */
+@media (max-width: 1024px) {
+  body { overflow: hidden; }
+
+  .bottom-panel {
+    width: 86% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px 14px !important;
+    border-radius: 12px !important;
+  }
+
+  .date-controls {
+    width: 100% !important;
+    justify-content: center;
+  }
+
+  .timeline-container {
+    flex-grow: 1 !important;
+    min-width: 0;
+  }
+
+  input[type="range"] {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .brand {
+    flex-shrink: 0;
+  }
+
+  #status-msg {
+    display: none; /* hide status text on small display */
+  }
+
+  /* Sidebar (right) narrows on tablet */
+  .sidebar {
+    width: 72px !important;
+  }
+
+  .sidebar-item {
+    flex-direction: column !important;
+    gap: 3px !important;
+    padding: 10px 6px !important;
+    width: 85% !important;
+  }
+
+  .sidebar-item span:not(.sidebar-icon):not(:first-child) {
+    font-size: 0.55rem !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  /* Map controls */
+  .map-extra-controls {
+    gap: 6px !important;
+  }
+
+  .map-extra-controls button {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  /* Leaflet draw toolbar */
+  .leaflet-draw-toolbar a {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  /* Analysis overlay */
+  .analysis-overlay {
+    padding: 16px;
+    align-items: flex-start;
+    padding-top: 40px;
+    overflow-y: auto;
+  }
+
+  .analysis-card {
+    max-width: 100% !important;
+    width: 100%;
+  }
+
+  .crop-selection-card {
+    max-width: 100% !important;
+    width: 100%;
+    padding: 24px 18px !important;
+  }
+
+  .crop-grid {
+    gap: 14px !important;
+  }
+
+  .culture-question {
+    font-size: 1.3rem !important;
+    margin: 20px 0 16px !important;
+  }
+
+  .crop-image-container {
+    width: 90px !important;
+    height: 90px !important;
+  }
+
+  /* Security overlay */
+  .security-card {
+    padding: 24px 20px !important;
+  }
+
+  /* Guide */
+  .guide-overlay {
+    padding: 12px;
+  }
+
+  .guide-modal {
+    max-width: 98vw;
+    max-height: 88vh;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 56px !important;
+    padding: 14px 0 !important;
+  }
+
+  .sidebar-divider {
+    width: 80% !important;
+  }
+
+  /* Bottom panel full width */
+  .bottom-panel {
+    width: 96% !important;
+    bottom: 4px !important;
+    padding: 6px 8px !important;
+  }
+
+  .brand {
+    font-size: 0.6rem !important;
+    padding: 3px 8px !important;
+  }
+
+  #date-display {
+    font-size: 0.7rem !important;
+  }
+
+  .nav-btn {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* Map extra controls */
+  .map-extra-controls {
+    gap: 5px !important;
+  }
+
+  .map-extra-controls button {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  /* Crop grid */
+  .crop-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  .crop-item {
+    padding: 16px 8px !important;
+  }
+
+  .crop-image-container {
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  .crop-name {
+    font-size: 0.8rem !important;
+  }
+
+  .start-analysis-btn {
+    padding: 12px 20px !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* Security card full width */
+  .security-card {
+    max-width: 96vw !important;
+    padding: 20px 14px !important;
+    border-radius: 14px !important;
+  }
+
+  .security-card h2 {
+    font-size: 1.1rem !important;
+    margin-bottom: 16px !important;
+  }
+
+  .access-btn {
+    padding: 12px 0 !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* Leaflet controls move down */
+  .leaflet-control-zoom {
+    margin-left: 8px !important;
+    margin-top: 70px !important;
+  }
+
+  .leaflet-draw-toolbar {
+    margin-top: 5px !important;
+  }
+}

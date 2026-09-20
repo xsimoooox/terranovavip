@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0F6B5B">
+    <link rel="icon" type="image/png" href="../images/imagefav.png">
+    <link rel="apple-touch-icon" href="../images/imagefav.png">
+    <link rel="manifest" href="manifest.json">
+    <title>TERRANOVA - Fournisseurs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/moroccan-theme.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <script src="../lang-data.js"></script>
+    <script src="../lang-system.js"></script>
+    <script src="data/crop_config.js"></script>
+    <script src="scripts/crop_manager.js"></script>
+    <style>
+        .fournisseurs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .category-header {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--moroccan-terracotta);
+            border-bottom: 2px solid rgba(196, 106, 58, 0.2);
+            padding-bottom: 15px;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .category-header span {
+            background: rgba(196, 106, 58, 0.1);
+            color: var(--moroccan-terracotta);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .fournisseur-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fournisseur-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: var(--moroccan-gold);
+        }
+
+        .fournisseur-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--moroccan-emerald);
+            border-radius: 12px 0 0 12px;
+        }
+
+        .company-name {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--moroccan-emerald);
+            font-size: 18px;
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+
+        .contact-info {
+            background: #F8F4EA;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+
+        .contact-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 8px;
+            align-items: flex-start;
+        }
+
+        .contact-row i {
+            color: var(--moroccan-gold);
+            font-style: normal;
+            width: 20px;
+        }
+
+        .products-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .products-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(0,0,0,0.1);
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .products-list li:last-child {
+            border-bottom: none;
+        }
+
+        .price-tag {
+            font-weight: 700;
+            color: #C46A3A;
+            background: rgba(196,106,58,0.1);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+        }
+
+        .special-badge {
+            display: inline-block;
+            background: rgba(15, 107, 91, 0.1);
+            color: #0F6B5B;
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-top: 15px;
+            border: 1px solid rgba(15, 107, 91, 0.2);
+        }
+
+        /* Float Support Button since we removed chat from sidebar */
+        #floating-support-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0F6B5B;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(15,107,91,0.4);
+            z-index: 2001;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        #floating-support-btn:hover {
+            transform: translateY(-2px);
+            background: #117b69;
+        }
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .fournisseurs-grid { grid-template-columns: 1fr 1fr !important; }
+            .category-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+        }
+        @media (max-width: 480px) {
+            .fournisseurs-grid { grid-template-columns: 1fr !important; }
+            .fournisseur-card { padding: 16px 14px !important; }
+            .company-name { font-size: 15px !important; }
+            .contact-info { padding: 12px !important; }
+            #floating-support-btn { padding: 10px 18px; font-size: 12px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Hamburger Menu Button (mobile/tablet) -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu" onclick="toggleMobileSidebar()">
+            <span></span><span></span><span></span>
+        </button>
+
+        <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeMobileSidebar()"></div>
+        <!-- Sidebar Navigation -->
+        <div class="sidebar-nav">
+            <button class="sidebar-toggle-btn" onclick="document.querySelector('.dashboard-container').classList.toggle('sidebar-collapsed'); document.querySelector('.dashboard-container').classList.toggle('sidebar-open')" title="Toggle Sidebar"></button>
+            <div class="sidebar-header"><span class="gaia-text">Terra</span><span class="eye-text">nova</span></div>
+            <div class="nav-item" onclick="window.location.href='index.html'" data-tooltip="Dashboard" data-i18n-tooltip="nav_dashboard">
+                <span class="nav-icon">🏠</span> <span class="nav-text" data-i18n="nav_dashboard">Dashboard</span>
+            </div>
+            <div class="nav-item" onclick="window.location.href='plan_parfait_arganier.html'" data-tooltip="Plan Arganier" data-i18n-tooltip="nav_plan">
+                <span class="nav-icon">🌳</span> <span class="nav-text" data-i18n="nav_plan">Plan Arganier</span>
+            </div>
+            <div class="nav-item" onclick="window.location.href='plan_parfait_arganier.html?view=today'" data-tooltip="Aujourd'hui" data-i18n-tooltip="nav_today">
+                <span class="nav-icon">📅</span> <span class="nav-text" data-i18n="nav_today">Aujourd'hui</span>
+            </div>
+            <div class="nav-item active" onclick="window.location.href='fournisseurs.html'" data-tooltip="Fournisseurs" data-i18n-tooltip="nav_suppliers">
+                <span class="nav-icon">🚛</span> <span class="nav-text" data-i18n="nav_suppliers">Fournisseurs</span>
+            </div>
+            <div class="nav-item" onclick="window.location.href='analyse_financiere.html'" data-tooltip="Analyse Financière" data-i18n-tooltip="nav_finance">
+                <span class="nav-icon">📊</span> <span class="nav-text" data-i18n="nav_finance">Analyse Financière</span>
+            </div>
+
+            <div class="nav-divider"></div>
+            <div class="nav-item back-btn" onclick="window.location.href='../map/index.html'" data-tooltip="Retour Carte" data-i18n-tooltip="nav_back_map">
+                <span data-i18n="nav_map_short">MAP</span> <span class="nav-icon">🗺️</span> <span class="nav-text" data-i18n="nav_back_map">Retour Carte</span>
+            </div>
+            
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1 class="main-title" data-i18n="sup_hero_title">🚛 ANNUAIRE DES FOURNISSEURS AGRICOLES</h1>
+            <p data-i18n="sup_hero_desc" style="text-align: center; color: #555; padding: 0 20px; margin-bottom: 40px;">Réseau certifié d'approvisionnement pour les protocoles de régénération des sols et d'optimisation agro-spatiale.</p>
+
+            <!-- 1. MATIÈRE ORGANIQUE & COMPOST -->
+            <h2 class="category-header"><span data-i18n="sup_cat_1">1. FOURNISSEURS DE MATIÈRE ORGANIQUE & COMPOST</span></h2>
+            <div class="fournisseurs-grid">
+                <!-- 1.1 -->
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_1_1">COMPOST DU SAISS</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_1_1">Route de Sefrou, Km 8, Commune Ain Chkef, Fès</span></div>
+                        <div class="contact-row"><i>📞</i> <span>06 61 23 45 67</span></div>
+                        <div class="contact-row"><i>👤</i> <span><strong data-i18n="sup_contact">Contact:</strong> <span data-i18n="sup_head_1_1">Hassan El Amrani</span></span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_compost_std">Compost standard</span> <span class="price-tag">120 <span data-i18n="sup_unit_m3">DH/m³</span></span></li>
+                        <li><span data-i18n="sup_prod_vermi_premium">Vermicompost premium</span> <span class="price-tag">250 <span data-i18n="sup_unit_m3">DH/m³</span></span></li>
+                        <li><span data-i18n="sup_prod_fumier_comp">Fumier composté (sac 50L)</span> <span class="price-tag">45 <span data-i18n="sup_dh">DH</span></span></li>
+                    </ul>
+                    <div class="special-badge"><span data-i18n="sup_capacity">Capacité:</span> 50 <span data-i18n="sup_capacity_label">T/jour</span> | <span data-i18n="sup_delivery">Livraison possible</span></div>
+                </div>
+
+                <!-- 1.2 -->
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_1_2">FERME BIOLOGIQUE AGLAN</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_1_2">Douar Aglan, Commune Outa El Hammam, Province Moulay Yaâcoub</span></div>
+                        <div class="contact-row"><i>📞</i> <span>06 70 12 34 56</span></div>
+                        <div class="contact-row"><i>👤</i> <span><strong data-i18n="sup_contact">Contact:</strong> <span data-i18n="sup_head_1_2">Rachid Benjelloun</span></span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_fientes">Fientes sèches en granulés</span> <span class="price-tag">8 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                        <li><span data-i18n="sup_prod_eggshells">Coquilles d'œufs broyées</span> <span class="price-tag">5 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                        <li><span data-i18n="sup_prod_feathers">Plumes hydrolyse</span> <span class="price-tag">12 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                    </ul>
+                    <div class="special-badge"><span data-i18n="sup_origin">Origine:</span> <span data-i18n="sup_origin_bio">100% élevage biologique</span></div>
+                </div>
+
+                <!-- 1.3 -->
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_1_3">UNI-VALOR (DÉCHETS VERTS)</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_1_3">Déchèterie de Fès, Route d'Imouzzer, sortie Fès</span></div>
+                        <div class="contact-row"><i>📞</i> <span>06 66 98 76 54</span></div>
+                        <div class="contact-row"><i>👤</i> <span><strong data-i18n="sup_contact">Contact:</strong> <span data-i18n="sup_head_1_3">Fatima Zohra Alaoui</span></span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_compost_vert">Compost vert</span> <span class="price-tag">80 <span data-i18n="sup_unit_m3">DH/m³</span></span></li>
+                        <li><span data-i18n="sup_prod_brf">BRF (bois raméal fragmenté)</span> <span class="price-tag">60 <span data-i18n="sup_unit_m3">DH/m³</span></span></li>
+                        <li><span data-i18n="sup_prod_terreau">Terreau feuilles</span> <span class="price-tag">70 <span data-i18n="sup_unit_m3">DH/m³</span></span></li>
+                    </ul>
+                    <div class="special-badge" data-i18n="sup_free_pickup">Reprise gratuite des déchets verts</div>
+                </div>
+
+                <!-- 1.4 -->
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_1_4">FERME DE TAFRANT</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_1_4">Douar Tafrant, Commune Ain Taoujdate, Province El Hajeb</span></div>
+                        <div class="contact-row"><i>📞</i> <span>06 71 23 45 67</span></div>
+                        <div class="contact-row"><i>👤</i> <span><strong data-i18n="sup_contact">Contact:</strong> <span data-i18n="sup_head_1_4">Ibrahim Ouhmad</span></span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_fumier_ovin">Fumier ovin pailleux</span> <span class="price-tag">70 <span data-i18n="sup_unit_m3">DH/m³</span></span></li>
+                        <li><span data-i18n="sup_prod_wool">Laine brute (rétention eau)</span> <span class="price-tag">15 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                        <li><span data-i18n="sup_prod_horn">Poudre de corne (azote lent)</span> <span class="price-tag">25 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                    </ul>
+                    <div class="special-badge" data-i18n="sup_extensif">Élevage extensif en parcours</div>
+                </div>
+            </div>
+
+            <!-- 2. AMENDEMENTS MINÉRAUX -->
+            <h2 class="category-header"><span data-i18n="sup_cat_2">2. FOURNISSEURS D'AMENDEMENTS MINÉRAUX NATURELS</span></h2>
+            <div class="fournisseurs-grid">
+                <!-- 2.1 -->
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_2_1">CARRIÈRE BENI MELLAL (DÉPÔT FÈS)</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_2_1">Zone Industrielle Sidi Brahim, Route de Taza, Fès</span></div>
+                        <div class="contact-row"><i>📞</i> <span>05 35 60 12 34</span></div>
+                        <div class="contact-row"><i>👤</i> <span><strong data-i18n="sup_contact">Contact:</strong> <span data-i18n="sup_head_2_1">Kamal Bensouda</span></span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_craie">Craie broyée (0-2mm)</span> <span class="price-tag">180 <span data-i18n="sup_unit_tonne">DH/tonne</span></span></li>
+                        <li><span data-i18n="sup_prod_chaux">Chaux vive agricole</span> <span class="price-tag">250 <span data-i18n="sup_unit_tonne">DH/tonne</span></span></li>
+                        <li><span data-i18n="sup_prod_gypse">Gypse agricole (désalinisation)</span> <span class="price-tag">220 <span data-i18n="sup_unit_tonne">DH/tonne</span></span></li>
+                        <li><span data-i18n="sup_prod_dolomie">Dolomie magnésienne</span> <span class="price-tag">200 <span data-i18n="sup_unit_tonne">DH/tonne</span></span></li>
+                    </ul>
+                    <div class="special-badge"><span data-i18n="sup_packaging">Conditionnement:</span> Vrac (30T) ou Big Bags 1.5T</div>
+                </div>
+                
+                <!-- 2.2 -->
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_2_2">SABLES ET GRANULATS DU SAÏSS</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_2_2">Route d'Immouzer, Km 15, Commune Sefrou</span></div>
+                        <div class="contact-row"><i>📞</i> <span>06 61 34 56 78</span></div>
+                        <div class="contact-row"><i>👤</i> <span><strong data-i18n="sup_contact">Contact:</strong> <span data-i18n="sup_head_2_2">Driss Fassi</span></span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_sable_silice">Sable siliceux 0/2mm</span> <span class="price-tag">150 <span data-i18n="sup_unit_tonne">DH/tonne</span></span></li>
+                        <li><span data-i18n="sup_prod_sable_volc">Sable volcanique</span> <span class="price-tag">450 <span data-i18n="sup_unit_tonne">DH/tonne</span></span></li>
+                        <li><span data-i18n="sup_prod_bentonite_sod">Bentonite sodique</span> <span class="price-tag">600 <span data-i18n="sup_unit_tonne">DH/tonne</span></span></li>
+                        <li><span data-i18n="sup_prod_gravier">Graviers calcaires 5/15mm</span> <span class="price-tag">120 <span data-i18n="sup_unit_tonne">DH/tonne</span></span></li>
+                    </ul>
+                </div>
+
+                <!-- 2.3 -->
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_2_3">MINÉRAUX DU MAROC</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_2_3">45 Avenue Hassan II, Bureau 3, Fès</span></div>
+                        <div class="contact-row"><i>📞</i> <span>05 35 62 34 56</span></div>
+                        <div class="contact-row"><i>👤</i> <span><strong data-i18n="sup_contact">Contact:</strong> <span data-i18n="sup_head_2_3">Mohamed El Kholti</span></span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_phosphate">Phosphate naturel broyé (P2O5 28%)</span> <span class="price-tag">280 <span data-i18n="sup_unit_tonne">DH/tonne</span></span></li>
+                        <li><span data-i18n="sup_prod_kainite">Kainite (potasse magnésienne)</span> <span class="price-tag">320 <span data-i18n="sup_unit_tonne">DH/tonne</span></span></li>
+                        <li><span data-i18n="sup_prod_kieserite">Kiesérite (sulfate magnésium)</span> <span class="price-tag">380 <span data-i18n="sup_unit_tonne">DH/tonne</span></span></li>
+                        <li><span data-i18n="sup_prod_oligo">Oligo-éléments chélatés (Fe,Zn,Mn)</span> <span class="price-tag">45 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                    </ul>
+                </div>
+
+                <!-- 2.4 -->
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_2_4">ARGILES ET TERRES SPÉCIALES</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_2_4">Souk Sebt Oulad Nemma, dépôt Fès (ZI Dokkarat)</span></div>
+                        <div class="contact-row"><i>📞</i> <span>06 70 98 76 54</span></div>
+                        <div class="contact-row"><i>👤</i> <span><strong data-i18n="sup_contact">Contact:</strong> <span data-i18n="sup_head_2_4">Abdelkrim Boussetta</span></span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_bentonite_calc">Bentonite calcique</span> <span class="price-tag">550 <span data-i18n="sup_unit_tonne">DH/tonne</span></span></li>
+                        <li><span data-i18n="sup_prod_diatomee">Terre de diatomée</span> <span class="price-tag">1200 <span data-i18n="sup_unit_tonne">DH/tonne</span></span></li>
+                        <li><span data-i18n="sup_prod_zeolithe">Zéolithe (échangeur cationique)</span> <span class="price-tag">1800 <span data-i18n="sup_unit_tonne">DH/tonne</span></span></li>
+                    </ul>
+                    <div class="special-badge" data-i18n="sup_import">Import Roumanie/Espagne</div>
+                </div>
+            </div>
+
+            <!-- 3. BIOCHAR -->
+            <h2 class="category-header"><span data-i18n="sup_cat_3">3. FOURNISSEURS DE BIOCHAR ET CARBONE VÉGÉTAL</span></h2>
+            <div class="fournisseurs-grid">
+                <!-- 3.1 -->
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_3_1">BIOCHAR MAROC (STARTUP)</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_3_1">Pépinière d'entreprises, UEMF, Fès</span></div>
+                        <div class="contact-row"><i>📞</i> <span>06 61 45 67 89</span></div>
+                        <div class="contact-row"><i>👤</i> <span><strong data-i18n="sup_contact">Contact:</strong> <span data-i18n="sup_head_3_1">Youssef Berrada</span></span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_biochar_std">Biochar standard (bois olivier)</span> <span class="price-tag">450 <span data-i18n="sup_dh">DH</span>/<span data-i18n="sup_unit_sac">sac</span> 40L</span></li>
+                        <li><span data-i18n="sup_prod_biochar_act">Biochar activé (avec compost)</span> <span class="price-tag">650 <span data-i18n="sup_dh">DH</span>/<span data-i18n="sup_unit_sac">sac</span> 40L</span></li>
+                        <li><span data-i18n="sup_prod_cendres_tam">Cendres de bois tamisées</span> <span class="price-tag">80 <span data-i18n="sup_dh">DH</span>/<span data-i18n="sup_unit_sac">sac</span> 25kg</span></li>
+                        <li><span data-i18n="sup_prod_biochar_mix">Mélanges biochar-compost</span> <span class="price-tag">350 <span data-i18n="sup_unit_m3">DH/m³</span></span></li>
+                    </ul>
+                    <div class="special-badge" data-i18n="sup_clean_pyrolysis">Fours pyrolitiques propres</div>
+                </div>
+
+                <!-- 3.2 -->
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_3_2">CHARBONNIERS DE SEFROU</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_3_2">Souk Hebdomadaire de Sefrou, lot 45</span></div>
+                        <div class="contact-row"><i>📞</i> <span>06 62 34 56 78</span></div>
+                        <div class="contact-row"><i>👤</i> <span><strong data-i18n="sup_contact">Contact:</strong> <span data-i18n="sup_head_3_2">Laheen Aït Ali</span></span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_cendres_chene">Cendres de chêne vert (potasse)</span> <span class="price-tag">2 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                        <li><span data-i18n="sup_prod_cendres_thuya">Cendres de thuya</span> <span class="price-tag">2.5 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                        <li><span data-i18n="sup_prod_braises">Braises concassées (biochar)</span> <span class="price-tag">3 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                    </ul>
+                    <div class="special-badge" data-i18n="sup_max_prod_season">Production maximale automne/hiver</div>
+                </div>
+            </div>
+
+            <!-- 4. SEMENCES -->
+            <h2 class="category-header"><span data-i18n="sup_cat_4">4. FOURNISSEURS DE SEMENCES (ENGRAIS VERTS & COUVERTS)</span></h2>
+            <div class="fournisseurs-grid">
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_4_1">SEMENCES DU MAGHREB</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_4_1">Route de Meknès, Km 5, Ain Chkef, Fès</span></div>
+                        <div class="contact-row"><i>📞</i> <span>05 35 65 43 21</span></div>
+                        <div class="contact-row"><i>👤</i> <span><strong data-i18n="sup_contact">Contact:</strong> <span data-i18n="sup_head_4_1">Ahmed El Moutawakil</span></span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_feverole">Féverole (fixation azote)</span> <span class="price-tag">12 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                        <li><span data-i18n="sup_prod_vesce">Vesce commune / Trèfle</span> <span class="price-tag">14-35 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                        <li><span data-i18n="sup_prod_luzerne">Luzerne</span> <span class="price-tag">45 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                        <li><span data-i18n="sup_prod_moutarde">Moutarde / Phacélie</span> <span class="price-tag">18-60 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                        <li><span data-i18n="sup_prod_radis">Radis fourrager</span> <span class="price-tag">22 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                    </ul>
+                </div>
+
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_4_2">COOPÉRATIVE AGRICOLE SAÏSS</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_4_2">Avenue Hassan II, Meknès</span></div>
+                        <div class="contact-row"><i>📞</i> <span>05 35 52 34 56</span></div>
+                        <div class="contact-row"><i>👤</i> <span><strong data-i18n="sup_contact">Contact:</strong> <span data-i18n="sup_head_4_2">Karim Drissi</span></span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_engrais_vert">Mélange Engrais vert premium</span> <span class="price-tag">30 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                        <li><span data-i18n="sup_prod_moutarde_bio">Graines de moutarde biofumigation</span> <span class="price-tag">25 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                        <li><span data-i18n="sup_prod_cresson">Cresson alénois (nématodes)</span> <span class="price-tag">40 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                    </ul>
+                </div>
+
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_4_3">GRAINES DE VIE - ASSOCIATION</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_4_3">Dar Taliba, Ain Chegag, Sefrou</span></div>
+                        <div class="contact-row"><i>📞</i> <span>06 70 11 22 33</span></div>
+                        <div class="contact-row"><i>👤</i> <span><strong data-i18n="sup_contact">Contact:</strong> <span data-i18n="sup_head_4_3">Fatima Ait Said</span></span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_fleurs">Mélange Fleurs sauvages Atlas</span> <span class="price-tag">80 <span data-i18n="sup_dh">DH</span>/100g</span></li>
+                        <li><span data-i18n="sup_prod_mellifere">Mélange Plantes mellifères</span> <span class="price-tag">60 <span data-i18n="sup_dh">DH</span>/100g</span></li>
+                        <li><span data-i18n="sup_prod_azote_local">Mélange Fixatrices azote locales</span> <span class="price-tag">40 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                    </ul>
+                    <div class="special-badge" data-i18n="sup_reproducible_seeds">Semences paysannes reproductibles</div>
+                </div>
+            </div>
+
+            <!-- 5. BIO ET MICROBES -->
+            <h2 class="category-header"><span data-i18n="sup_cat_5">5. PRODUITS BIOLOGIQUES (MICROBES & CHAMPIGNONS)</span></h2>
+            <div class="fournisseurs-grid">
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_5_1">BIO-INNOVATION MAROC</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_5_1">Technopôle de Fès, Bât. B15, Fès</span></div>
+                        <div class="contact-row"><i>📞</i> <span>05 35 68 90 12</span></div>
+                        <div class="contact-row"><i>👤</i> <span><strong data-i18n="sup_contact">Contact:</strong> <span data-i18n="sup_head_5_1">Pr. Naima El Ghachtouli</span></span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_myco">Mycorhizes (5 espèces)</span> <span class="price-tag">250 <span data-i18n="sup_dh">DH</span>/100g</span></li>
+                        <li><span data-i18n="sup_prod_tricho">Trichoderma harzianum</span> <span class="price-tag">180 <span data-i18n="sup_dh">DH</span>/100g</span></li>
+                        <li><span data-i18n="sup_prod_bacillus">Bacillus subtilis</span> <span class="price-tag">150 <span data-i18n="sup_dh">DH</span>/100g</span></li>
+                        <li><span data-i18n="sup_prod_activ_comp">Activateur de compost</span> <span class="price-tag">120 <span data-i18n="sup_dh">DH</span>/L</span></li>
+                    </ul>
+                </div>
+
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_5_2">LABO MICROBIOLOGIE ENFI</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_5_2">ENFI Salé (dépôt Fès sur commande)</span></div>
+                        <div class="contact-row"><i>📞</i> <span>05 37 78 94 56 (p. 245)</span></div>
+                        <div class="contact-row"><i>👤</i> <span><strong data-i18n="sup_contact">Contact:</strong> <span data-i18n="sup_head_5_2">Dr. Abdelaziz Bouizgarne</span></span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_microbiome">Analyse microbiome du sol</span> <span class="price-tag">1500 <span data-i18n="sup_dh">DH</span></span></li>
+                        <li><span data-i18n="sup_prod_souches">Souches natives conservées</span> <span class="price-tag">500 <span data-i18n="sup_dh">DH</span></span></li>
+                        <li><span data-i18n="sup_on_file">Inoculums sur mesure</span> <span class="price-tag" data-i18n="sup_on_quote">Sur devis</span></li>
+                    </ul>
+                </div>
+
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_5_3">VERMICOMPOST SARL</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_5_3">Douar Oulad Slimane, Commune Bhalil, Sefrou</span></div>
+                        <div class="contact-row"><i>📞</i> <span>06 66 77 88 99</span></div>
+                        <div class="contact-row"><i>👤</i> <span><strong data-i18n="sup_contact">Contact:</strong> <span data-i18n="sup_head_5_3">Samira El Khalfi</span></span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_lombric">Lombricompur (vermicompost)</span> <span class="price-tag">350 <span data-i18n="sup_unit_m3">DH/m³</span></span></li>
+                        <li><span data-i18n="sup_prod_lombr_the">Lombrithé actif</span> <span class="price-tag">50 <span data-i18n="sup_dh">DH</span>/L</span></li>
+                        <li><span data-i18n="sup_prod_vers">Vers de Californie (~2000 pers.)</span> <span class="price-tag">500 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 6. PAILLES ET RESIDUS -->
+            <h2 class="category-header"><span data-i18n="sup_cat_6">6. PAILLES, FOINS ET RÉSIDUS VÉGÉTAUX</span></h2>
+            <div class="fournisseurs-grid">
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_6_1">COOPÉRATIVE CÉRÉALIÈRE FÈS</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_6_1">Gare routière des céréales, Fès</span></div>
+                        <div class="contact-row"><i>📞</i> <span>05 35 61 23 45</span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_paille">Paille blé/orge/avoine (botte)</span> <span class="price-tag">35-45 <span data-i18n="sup_unit_botte">DH/botte</span></span></li>
+                        <li><span data-i18n="sup_prod_foin">Foin de luzerne</span> <span class="price-tag">6 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                    </ul>
+                </div>
+
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_6_2">MOULINS DU SAÏSS</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_6_2">Zone Industrielle Sidi Brahim, Fès</span></div>
+                        <div class="contact-row"><i>📞</i> <span>05 35 60 45 67</span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_son">Son de blé</span> <span class="price-tag">3 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                        <li><span data-i18n="sup_prod_amandes">Coques d'amandes broyées</span> <span class="price-tag">1.5 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                        <li><span data-i18n="sup_prod_grignons">Grignons d'olive dénoyautés</span> <span class="price-tag">0.8 <span data-i18n="sup_unit_kg">DH/kg</span></span></li>
+                    </ul>
+                </div>
+
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_6_3">SCIERIES DU MOYEN ATLAS</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_6_3">Route d'Ifrane, Azrou (livraison Fès)</span></div>
+                        <div class="contact-row"><i>📞</i> <span>06 71 34 56 78</span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_sciure">Sciure de cèdre (longue durée)</span> <span class="price-tag">200 <span data-i18n="sup_unit_m3">DH/m³</span></span></li>
+                        <li><span data-i18n="sup_prod_copeaux">Copeaux de chêne (BRF)</span> <span class="price-tag">150 <span data-i18n="sup_unit_m3">DH/m³</span></span></li>
+                        <li><span data-i18n="sup_prod_plaquettes">Plaquettes forestières</span> <span class="price-tag">100 <span data-i18n="sup_unit_m3">DH/m³</span></span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 7. DIAGNOSTIC ET LABORATOIRE -->
+            <h2 class="category-header"><span data-i18n="sup_cat_7">7. DIAGNOSTIC ET LABORATOIRE</span></h2>
+            <div class="fournisseurs-grid">
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_7_1">AGRI-TEST MAROC</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_7_1">Meknès</span></div>
+                        <div class="contact-row"><i>📞</i> <span>05 35 55 77 88</span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_kits">Kits analyse</span> <span class="price-tag">2500 <span data-i18n="sup_dh">DH</span></span></li>
+                        <li><span data-i18n="sup_prod_ph">pH-mètre</span> <span class="price-tag">1800 <span data-i18n="sup_dh">DH</span></span></li>
+                        <li><span data-i18n="sup_prod_penetrometre">Pénétromètres</span> <span class="price-tag">3500 <span data-i18n="sup_dh">DH</span></span></li>
+                    </ul>
+                </div>
+
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_7_2">LABO INRA FÈS</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_7_2">Fès</span></div>
+                        <div class="contact-row"><i>📞</i> <span>05 35 62 38 40</span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_ana_sol">Analyse complète sol</span> <span class="price-tag">500 <span data-i18n="sup_dh">DH</span></span></li>
+                        <li><span data-i18n="sup_prod_oligo">Oligo-éléments</span> <span class="price-tag">400 <span data-i18n="sup_dh">DH</span></span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 8. PÉPINIÈRES -->
+            <h2 class="category-header"><span data-i18n="sup_cat_8">8. PÉPINIÈRES</span></h2>
+            <div class="fournisseurs-grid">
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_8_1">PÉPINIÈRE EL BARAKA</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_8_1">Sefrou</span></div>
+                        <div class="contact-row"><i>📞</i> <span>06 61 23 45 67</span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_arganier">Arganier</span> <span class="price-tag">30 <span data-i18n="sup_unit_pied">DH/pied</span></span></li>
+                        <li><span data-i18n="sup_prod_caroubier">Caroubier</span> <span class="price-tag">20 <span data-i18n="sup_unit_pied">DH/pied</span></span></li>
+                        <li><span data-i18n="sup_prod_cypres">Cyprès</span> <span class="price-tag">15 <span data-i18n="sup_unit_pied">DH/pied</span></span></li>
+                    </ul>
+                </div>
+
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_8_2">PÉPINIÈRE AGRICOLE</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_8_2">Meknès</span></div>
+                        <div class="contact-row"><i>📞</i> <span>05 35 52 33 44</span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_vigne">Plants de vigne certifiés</span> <span class="price-tag">25-35 <span data-i18n="sup_unit_p">DH/p</span></span></li>
+                        <li><span data-i18n="sup_prod_porte_greffe">Porte-greffes</span> <span class="price-tag">18 <span data-i18n="sup_unit_p">DH/p</span></span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 9. MATÉRIEL & ÉQUIPEMENTS -->
+            <h2 class="category-header"><span data-i18n="sup_cat_9">9. MATÉRIEL & ÉQUIPEMENTS</span></h2>
+            <div class="fournisseurs-grid">
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_9_1">AGRI MACHINES FÈS</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_9_1">Zone Industrielle de Fès</span></div>
+                        <div class="contact-row"><i>📞</i> <span>05 35 11 22 33</span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_irrig">Matériel d'irrigation</span> <span class="price-tag" data-i18n="sup_on_quote">Sur devis</span></li>
+                        <li><span data-i18n="sup_prod_tools_argan">Outils d'élagage Arganier</span> <span class="price-tag" data-i18n="sup_variable">Variable</span></li>
+                        <li><span data-i18n="sup_prod_baches">Bâches et filets</span> <span class="price-tag" data-i18n="sup_per_m2">Par m²</span></li>
+                    </ul>
+                    <div class="special-badge" data-i18n="sup_guarantee">Garantie & SAV inclus</div>
+                </div>
+            </div>
+
+            <!-- 10. SERVICES & CONSEIL -->
+            <h2 class="category-header"><span data-i18n="sup_cat_10">10. SERVICES & CONSEILS AGRICOLES</span></h2>
+            <div class="fournisseurs-grid">
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_10_1">CHAMBRE D'AGRICULTURE FÈS-MEKNÈS</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_10_1">Fès-Meknès</span></div>
+                        <div class="contact-row"><i>📞</i> <span>05 35 62 10 20</span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_conseil">Conseils agricoles</span> <span class="price-tag" data-i18n="sup_free">Gratuit</span></li>
+                        <li><span data-i18n="sup_prod_accomp">Accompagnement de projets</span> <span class="price-tag" data-i18n="sup_on_request">Sur demande</span></li>
+                        <li><span data-i18n="sup_prod_subv">Subventions et appuis financiers</span> <span class="price-tag" data-i18n="sup_assistance">Assistance</span></li>
+                    </ul>
+                    <div class="special-badge" data-i18n="sup_institution_public">Institution Publique</div>
+                </div>
+
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_10_2">ORMVA SAÏSS</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_10_2">Saïss</span></div>
+                        <div class="contact-row"><i>📞</i> <span>05 35 64 11 22</span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_sol_base">Études de sol de base</span> <span class="price-tag" data-i18n="sup_subsidized">Subventionné</span></li>
+                        <li><span data-i18n="sup_prod_hydro">Appui aménagement hydro-agricole</span> <span class="price-tag" data-i18n="sup_on_file">Sur dossier</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 11. TRANSPORT & LOGISTIQUE -->
+            <h2 class="category-header"><span data-i18n="sup_cat_11">11. TRANSPORT & LOGISTIQUE</span></h2>
+            <div class="fournisseurs-grid">
+                <div class="fournisseur-card">
+                    <h3 class="company-name" data-i18n="sup_name_11_1">TRANSPORTS EL BARNOUSSI</h3>
+                    <div class="contact-info">
+                        <div class="contact-row"><i>📍</i> <span data-i18n="sup_addr_11_1">Maroc Central</span></div>
+                        <div class="contact-row"><i>📞</i> <span>06 61 45 67 89</span></div>
+                    </div>
+                    <ul class="products-list">
+                        <li><span data-i18n="sup_prod_vrac">Livraison vrac</span> <span class="price-tag" data-i18n="sup_direct_quote">Devis direct</span></li>
+                        <li><span data-i18n="sup_prod_bennes">Bennes organiques (10T à 30T)</span> <span class="price-tag" data-i18n="sup_price_bennes">Env. 300DH / 30km</span></li>
+                    </ul>
+                    <div class="special-badge" data-i18n="sup_agri_transport">Transport de matériaux agricoles</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Floating Action Button (FAB) -->
+    <div class="fab-wrapper">
+        <button class="fab-main">
+            <span>+</span>
+        </button>
+        <div class="fab-options">
+            <button class="fab-btn" data-tooltip="Support" data-i18n-tooltip="nav_support" onclick="toggleChat()">
+                <span>💬</span>
+            </button>
+            <button class="fab-btn" data-tooltip="Envoyer un commentaire" data-i18n-tooltip="nav_feedback" onclick="toggleFeedback()">
+                <span>📝</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div id="feedback-modal">
+        <div class="feedback-header">
+            <h4 data-i18n="fb_title">Envoyer un commentaire</h4>
+            <span class="feedback-close" onclick="toggleFeedback()">✕</span>
+        </div>
+        <div class="feedback-body">
+            <label data-i18n="fb_label">Votre message ou feedback :</label>
+            <textarea id="feedback-text" data-i18n-placeholder="fb_placeholder" placeholder="Dites-nous ce que vous en pensez..."></textarea>
+        </div>
+        <div class="feedback-footer">
+            <button class="submit-feedback-btn" data-i18n="fb_submit" onclick="sendFeedback()">ENVOYER</button>
+        </div>
+    </div>
+
+    <!-- Chat Widget -->
+    <div id="chat-widget" style="display:none; position:fixed; bottom:100px; right:25px; width:350px; height:450px; background:#f0f9f7; border:2px solid #C46A3A; border-radius:15px; flex-direction:column; z-index:2000; box-shadow:0 10px 40px rgba(0,0,0,0.1); overflow:hidden; backdrop-filter:blur(20px); opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+        <div style="background:linear-gradient(90deg, #C46A3A, #C9A227); color:#f0ebe2; padding:15px; font-weight:700; font-family:'Orbitron', sans-serif; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(201, 162, 39, 0.3);">
+            <span data-i18n="chat_title">💬 SUPPORT </span>
+            <button onclick="toggleChat()" style="background:none; border:none; color:#f0ebe2; cursor:pointer; font-weight:700; font-size:18px;">✕</button>
+        </div>
+        <div id="chat-messages" style="flex:1; padding:15px; overflow-y:auto; display:flex; flex-direction:column; gap:10px; font-size:13px; color:#111; background:#e8f5f2; background-image:url('../images/moroccan_zellige.png'); background-size:100px; background-blend-mode:multiply;">
+            <div style="margin-bottom:10px;"><span class="crop-aware-welcome" data-i18n="chat_welcome" style="background:rgba(15, 107, 101, 0.1); color:#0F6B5B; padding:8px 14px; border-radius:12px; font-size:12px; display:inline-block; border:1px solid rgba(15, 107, 91, 0.2)">Bonjour. Comment pouvons-nous vous aider ?</span></div>
+        </div>
+        <div style="padding:15px; border-top:1px solid rgba(201, 162, 39, 0.2); display:flex; gap:10px; background:#f0f9f7;">
+            <input type="text" id="chat-input" data-i18n-placeholder="chat_placeholder" placeholder="Tapez votre message..." style="flex:1; background:#FFFFFF; border:1px solid rgba(201, 162, 39, 0.3); border-radius:8px; padding:8px 12px; color:#111; outline:none;" onkeypress="if(event.key === 'Enter') sendMessage()">
+            <button onclick="sendMessage()" data-i18n="chat_send" style="background:#C46A3A; color:#FFFFFF; border:none; border-radius:8px; padding:8px 15px; cursor:pointer; font-weight:700; transition:all 0.3s;" onmouseover="this.style.transform='scale(1.05)'; this.style.backgroundColor='#d47a4a';" onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='#C46A3A';">ENVOYER</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            const chat = document.getElementById('chat-widget');
+            if (chat.style.opacity === '1') {
+                chat.style.opacity = '0';
+                chat.style.transform = 'translateY(20px)';
+                setTimeout(() => chat.style.display = 'none', 300);
+            } else {
+                chat.style.display = 'flex';
+                setTimeout(() => {
+                    chat.style.opacity = '1';
+                    chat.style.transform = 'translateY(0)';
+                }, 10);
+            }
+        }
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const msgs = document.getElementById('chat-messages');
+            const userText = input.value.trim().toLowerCase();
+            if (userText === '') return;
+
+            msgs.innerHTML += `<div style="margin-bottom:10px; text-align:right;"><span style="background:#ff9800; color:#fff; padding:6px 12px; border-radius:12px; font-size:12px; display:inline-block;">${input.value}</span></div>`;
+            input.value = '';
+            msgs.scrollTop = msgs.scrollHeight;
+
+            setTimeout(() => {
+                const config = CROP_CONFIG[getSelectedCrop()];
+                let reply = "Merci pour votre message. Un expert Terranova va vous répondre sous peu.";
+                if (userText.includes("plan") || userText.includes(config.name.toLowerCase())) reply = `Le plan ${config.display} est optimisé pour votre zone. Souhaitez-vous des détails sur un jour précis ?`;
+                if (userText.includes("prix") || userText.includes("coût")) reply = "Les coûts sont estimés selon votre surface. Contactez-nous pour un devis précis.";
+                
+                msgs.innerHTML += `<div style="margin-bottom:10px;"><span style="background:rgba(15, 107, 91, 0.1); color:#0F6B5B; padding:8px 14px; border-radius:12px; font-size:12px; display:inline-block; border:1px solid rgba(15, 107, 91, 0.2)">${reply}</span></div>`;
+                msgs.scrollTop = msgs.scrollHeight;
+            }, 1000);
+        }
+
+        function toggleFeedback() {
+            const modal = document.getElementById('feedback-modal');
+            modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
+            if (modal.style.display === 'block') {
+                document.getElementById('chat-widget').style.display = 'none';
+                document.getElementById('chat-widget').style.opacity = '0';
+            }
+        }
+
+        function sendFeedback() {
+            const text = document.getElementById('feedback-text').value;
+            if (text.trim() === '') return;
+            
+            const btn = document.querySelector('.submit-feedback-btn');
+            const originalText = btn.innerText;
+            btn.innerText = '...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Merci pour votre message ! Votre commentaire a été envoyé avec succès à l\'équipe Terranova.');
+                document.getElementById('feedback-text').value = '';
+                toggleFeedback();
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }, 1500);
+        }
+    </script>
+    <!-- Mobile Sidebar Toggle -->
+    <script>
+        function toggleMobileSidebar() {
+            const sidebar = document.querySelector('.sidebar-nav');
+            const overlay = document.getElementById('sidebarOverlay');
+            const btn = document.getElementById('hamburgerBtn');
+            const isOpen = sidebar.classList.toggle('is-sidebar-open');
+            overlay.classList.toggle('is-sidebar-open', isOpen);
+            btn.classList.toggle('is-open', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+        function closeMobileSidebar() {
+            const sidebar = document.querySelector('.sidebar-nav');
+            const overlay = document.getElementById('sidebarOverlay');
+            const btn = document.getElementById('hamburgerBtn');
+            sidebar.classList.remove('is-sidebar-open');
+            overlay.classList.remove('is-sidebar-open');
+            btn.classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) { closeMobileSidebar(); }
+        });
+    </script>
+    <!-- PWA Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('ServiceWorker registered'))
+                    .catch(err => console.log('ServiceWorker registration failed: ', err));
+            });
+        }
+    </script>
+</body>
+</html>

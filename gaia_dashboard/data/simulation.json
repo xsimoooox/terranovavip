@@ -1,0 +1,2542 @@
+[
+  {
+    "day": 1,
+    "date": "2024-03-01",
+    "status": {
+      "pH": 7.79,
+      "EC": 3.36,
+      "MO": 1.22,
+      "compaction": 2.0,
+      "microbes": 1.2,
+      "score": 35
+    },
+    "weather": {
+      "temp": 17.9,
+      "humidity": 46.0,
+      "condition": "Ensoleillé"
+    },
+    "commands": [
+      {
+        "id": "CMD_1_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_1_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=7.79, EC=3.36",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_1_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 19mm, Duration: 45min",
+        "parameters": {
+          "volume": "15mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_1_0900",
+        "time": "09:00:00",
+        "category": "TRAITEMENT",
+        "action": "APPLY_SULFUR_CORRECTION",
+        "details": "Application soufre élémentaire localisée",
+        "parameters": {
+          "dose": "10 kg/ha",
+          "depth": "5cm"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_1_1030",
+        "time": "10:30:00",
+        "category": "NUTRITION",
+        "action": "APPLY_ORGANIC_COMPOST",
+        "details": "Épandage compost mature haute qualité",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_1_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_1_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 1: Progression conforme. Score sol 35/100."
+  },
+  {
+    "day": 2,
+    "date": "2024-03-02",
+    "status": {
+      "pH": 7.9,
+      "EC": 3.19,
+      "MO": 1.22,
+      "compaction": 1.99,
+      "microbes": 1.5,
+      "score": 35
+    },
+    "weather": {
+      "temp": 21.1,
+      "humidity": 61.0,
+      "condition": "Partiellement nuageux"
+    },
+    "commands": [
+      {
+        "id": "CMD_2_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_2_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=7.90, EC=3.19",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_2_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 16mm, Duration: 45min",
+        "parameters": {
+          "volume": "24mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_2_0900",
+        "time": "09:00:00",
+        "category": "TRAITEMENT",
+        "action": "APPLY_SULFUR_CORRECTION",
+        "details": "Application soufre élémentaire localisée",
+        "parameters": {
+          "dose": "7 kg/ha",
+          "depth": "5cm"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_2_1030",
+        "time": "10:30:00",
+        "category": "NUTRITION",
+        "action": "APPLY_ORGANIC_COMPOST",
+        "details": "Épandage compost mature haute qualité",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_2_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_2_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 2: Progression conforme. Score sol 35/100."
+  },
+  {
+    "day": 3,
+    "date": "2024-03-03",
+    "status": {
+      "pH": 7.97,
+      "EC": 3.12,
+      "MO": 1.3,
+      "compaction": 1.97,
+      "microbes": 1.7,
+      "score": 36
+    },
+    "weather": {
+      "temp": 25.3,
+      "humidity": 56.0,
+      "condition": "Ensoleillé"
+    },
+    "commands": [
+      {
+        "id": "CMD_3_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_3_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=7.97, EC=3.12",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_3_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 16mm, Duration: 45min",
+        "parameters": {
+          "volume": "19mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_3_0900",
+        "time": "09:00:00",
+        "category": "TRAITEMENT",
+        "action": "APPLY_SULFUR_CORRECTION",
+        "details": "Application soufre élémentaire localisée",
+        "parameters": {
+          "dose": "11 kg/ha",
+          "depth": "5cm"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_3_1030",
+        "time": "10:30:00",
+        "category": "NUTRITION",
+        "action": "APPLY_ORGANIC_COMPOST",
+        "details": "Épandage compost mature haute qualité",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_3_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_3_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 3: Progression conforme. Score sol 36/100."
+  },
+  {
+    "day": 4,
+    "date": "2024-03-04",
+    "status": {
+      "pH": 7.92,
+      "EC": 3.21,
+      "MO": 1.31,
+      "compaction": 2.07,
+      "microbes": 2.1,
+      "score": 39
+    },
+    "weather": {
+      "temp": 22.9,
+      "humidity": 49.0,
+      "condition": "Partiellement nuageux"
+    },
+    "commands": [
+      {
+        "id": "CMD_4_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_4_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=7.92, EC=3.21",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_4_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 18mm, Duration: 45min",
+        "parameters": {
+          "volume": "18mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_4_0900",
+        "time": "09:00:00",
+        "category": "TRAITEMENT",
+        "action": "APPLY_SULFUR_CORRECTION",
+        "details": "Application soufre élémentaire localisée",
+        "parameters": {
+          "dose": "7 kg/ha",
+          "depth": "5cm"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_4_1030",
+        "time": "10:30:00",
+        "category": "NUTRITION",
+        "action": "APPLY_ORGANIC_COMPOST",
+        "details": "Épandage compost mature haute qualité",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_4_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_4_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 4: Progression conforme. Score sol 39/100."
+  },
+  {
+    "day": 5,
+    "date": "2024-03-05",
+    "status": {
+      "pH": 7.96,
+      "EC": 3.03,
+      "MO": 1.41,
+      "compaction": 1.97,
+      "microbes": 2.3,
+      "score": 41
+    },
+    "weather": {
+      "temp": 25.9,
+      "humidity": 54.0,
+      "condition": "Ensoleillé"
+    },
+    "commands": [
+      {
+        "id": "CMD_5_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_5_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=7.96, EC=3.03",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_5_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 19mm, Duration: 45min",
+        "parameters": {
+          "volume": "20mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_5_0900",
+        "time": "09:00:00",
+        "category": "TRAITEMENT",
+        "action": "APPLY_SULFUR_CORRECTION",
+        "details": "Application soufre élémentaire localisée",
+        "parameters": {
+          "dose": "7 kg/ha",
+          "depth": "5cm"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_5_1030",
+        "time": "10:30:00",
+        "category": "NUTRITION",
+        "action": "APPLY_ORGANIC_COMPOST",
+        "details": "Épandage compost mature haute qualité",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_5_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_5_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 5: Progression conforme. Score sol 41/100."
+  },
+  {
+    "day": 6,
+    "date": "2024-03-06",
+    "status": {
+      "pH": 7.65,
+      "EC": 3.02,
+      "MO": 1.44,
+      "compaction": 1.96,
+      "microbes": 2.6,
+      "score": 45
+    },
+    "weather": {
+      "temp": 22.8,
+      "humidity": 41.0,
+      "condition": "Ensoleillé"
+    },
+    "commands": [
+      {
+        "id": "CMD_6_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_6_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=7.65, EC=3.02",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_6_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 23mm, Duration: 45min",
+        "parameters": {
+          "volume": "21mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_6_0900",
+        "time": "09:00:00",
+        "category": "TRAITEMENT",
+        "action": "APPLY_SULFUR_CORRECTION",
+        "details": "Application soufre élémentaire localisée",
+        "parameters": {
+          "dose": "7 kg/ha",
+          "depth": "5cm"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_6_1030",
+        "time": "10:30:00",
+        "category": "NUTRITION",
+        "action": "APPLY_ORGANIC_COMPOST",
+        "details": "Épandage compost mature haute qualité",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_6_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_6_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 6: Progression conforme. Score sol 45/100."
+  },
+  {
+    "day": 7,
+    "date": "2024-03-07",
+    "status": {
+      "pH": 7.34,
+      "EC": 2.99,
+      "MO": 1.56,
+      "compaction": 1.94,
+      "microbes": 2.8,
+      "score": 45
+    },
+    "weather": {
+      "temp": 18.4,
+      "humidity": 68.0,
+      "condition": "Ensoleillé"
+    },
+    "commands": [
+      {
+        "id": "CMD_7_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_7_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=7.34, EC=2.99",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_7_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 23mm, Duration: 45min",
+        "parameters": {
+          "volume": "20mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_7_0900",
+        "time": "09:00:00",
+        "category": "TRAITEMENT",
+        "action": "APPLY_SULFUR_CORRECTION",
+        "details": "Application soufre élémentaire localisée",
+        "parameters": {
+          "dose": "10 kg/ha",
+          "depth": "5cm"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_7_1030",
+        "time": "10:30:00",
+        "category": "NUTRITION",
+        "action": "APPLY_ORGANIC_COMPOST",
+        "details": "Épandage compost mature haute qualité",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_7_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_7_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 7: Progression conforme. Score sol 45/100."
+  },
+  {
+    "day": 8,
+    "date": "2024-03-08",
+    "status": {
+      "pH": 7.4,
+      "EC": 2.9,
+      "MO": 1.63,
+      "compaction": 1.8,
+      "microbes": 3.2,
+      "score": 47
+    },
+    "weather": {
+      "temp": 19.0,
+      "humidity": 63.0,
+      "condition": "Partiellement nuageux"
+    },
+    "commands": [
+      {
+        "id": "CMD_8_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_8_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=7.40, EC=2.90",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_8_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 17mm, Duration: 45min",
+        "parameters": {
+          "volume": "20mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_8_0900",
+        "time": "09:00:00",
+        "category": "TRAITEMENT",
+        "action": "APPLY_SULFUR_CORRECTION",
+        "details": "Application soufre élémentaire localisée",
+        "parameters": {
+          "dose": "15 kg/ha",
+          "depth": "5cm"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_8_1030",
+        "time": "10:30:00",
+        "category": "NUTRITION",
+        "action": "APPLY_ORGANIC_COMPOST",
+        "details": "Épandage compost mature haute qualité",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_8_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_8_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 8: Progression conforme. Score sol 47/100."
+  },
+  {
+    "day": 9,
+    "date": "2024-03-09",
+    "status": {
+      "pH": 7.4,
+      "EC": 2.86,
+      "MO": 1.71,
+      "compaction": 1.89,
+      "microbes": 3.3,
+      "score": 51
+    },
+    "weather": {
+      "temp": 26.1,
+      "humidity": 51.0,
+      "condition": "Clair"
+    },
+    "commands": [
+      {
+        "id": "CMD_9_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_9_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=7.40, EC=2.86",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_9_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 17mm, Duration: 45min",
+        "parameters": {
+          "volume": "17mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_9_0900",
+        "time": "09:00:00",
+        "category": "TRAITEMENT",
+        "action": "APPLY_SULFUR_CORRECTION",
+        "details": "Application soufre élémentaire localisée",
+        "parameters": {
+          "dose": "13 kg/ha",
+          "depth": "5cm"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_9_1030",
+        "time": "10:30:00",
+        "category": "NUTRITION",
+        "action": "APPLY_ORGANIC_COMPOST",
+        "details": "Épandage compost mature haute qualité",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_9_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_9_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 9: Progression conforme. Score sol 51/100."
+  },
+  {
+    "day": 10,
+    "date": "2024-03-10",
+    "status": {
+      "pH": 7.53,
+      "EC": 2.99,
+      "MO": 1.76,
+      "compaction": 1.79,
+      "microbes": 3.8,
+      "score": 51
+    },
+    "weather": {
+      "temp": 17.7,
+      "humidity": 42.0,
+      "condition": "Ensoleillé"
+    },
+    "commands": [
+      {
+        "id": "CMD_10_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_10_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=7.53, EC=2.99",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_10_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 22mm, Duration: 45min",
+        "parameters": {
+          "volume": "17mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_10_0900",
+        "time": "09:00:00",
+        "category": "TRAITEMENT",
+        "action": "APPLY_SULFUR_CORRECTION",
+        "details": "Application soufre élémentaire localisée",
+        "parameters": {
+          "dose": "15 kg/ha",
+          "depth": "5cm"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_10_1030",
+        "time": "10:30:00",
+        "category": "NUTRITION",
+        "action": "APPLY_ORGANIC_COMPOST",
+        "details": "Épandage compost mature haute qualité",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_10_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_10_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 10: Progression conforme. Score sol 51/100."
+  },
+  {
+    "day": 11,
+    "date": "2024-03-11",
+    "status": {
+      "pH": 7.32,
+      "EC": 2.92,
+      "MO": 1.79,
+      "compaction": 1.78,
+      "microbes": 4.0,
+      "score": 53
+    },
+    "weather": {
+      "temp": 27.7,
+      "humidity": 41.0,
+      "condition": "Partiellement nuageux"
+    },
+    "commands": [
+      {
+        "id": "CMD_11_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_11_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=7.32, EC=2.92",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_11_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 16mm, Duration: 45min",
+        "parameters": {
+          "volume": "21mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_11_0900",
+        "time": "09:00:00",
+        "category": "TRAITEMENT",
+        "action": "APPLY_SULFUR_CORRECTION",
+        "details": "Application soufre élémentaire localisée",
+        "parameters": {
+          "dose": "15 kg/ha",
+          "depth": "5cm"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_11_1030",
+        "time": "10:30:00",
+        "category": "NUTRITION",
+        "action": "APPLY_ORGANIC_COMPOST",
+        "details": "Épandage compost mature haute qualité",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_11_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_11_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 11: Progression conforme. Score sol 53/100."
+  },
+  {
+    "day": 12,
+    "date": "2024-03-12",
+    "status": {
+      "pH": 7.4,
+      "EC": 2.78,
+      "MO": 1.8,
+      "compaction": 1.73,
+      "microbes": 4.2,
+      "score": 55
+    },
+    "weather": {
+      "temp": 15.2,
+      "humidity": 44.0,
+      "condition": "Clair"
+    },
+    "commands": [
+      {
+        "id": "CMD_12_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_12_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=7.40, EC=2.78",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_12_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 19mm, Duration: 45min",
+        "parameters": {
+          "volume": "18mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_12_0900",
+        "time": "09:00:00",
+        "category": "TRAITEMENT",
+        "action": "APPLY_SULFUR_CORRECTION",
+        "details": "Application soufre élémentaire localisée",
+        "parameters": {
+          "dose": "8 kg/ha",
+          "depth": "5cm"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_12_1030",
+        "time": "10:30:00",
+        "category": "NUTRITION",
+        "action": "APPLY_ORGANIC_COMPOST",
+        "details": "Épandage compost mature haute qualité",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_12_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_12_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 12: Progression conforme. Score sol 55/100."
+  },
+  {
+    "day": 13,
+    "date": "2024-03-13",
+    "status": {
+      "pH": 7.16,
+      "EC": 2.77,
+      "MO": 1.92,
+      "compaction": 1.7,
+      "microbes": 4.5,
+      "score": 59
+    },
+    "weather": {
+      "temp": 20.2,
+      "humidity": 47.0,
+      "condition": "Partiellement nuageux"
+    },
+    "commands": [
+      {
+        "id": "CMD_13_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_13_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=7.16, EC=2.77",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_13_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 18mm, Duration: 45min",
+        "parameters": {
+          "volume": "15mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_13_0900",
+        "time": "09:00:00",
+        "category": "TRAITEMENT",
+        "action": "APPLY_SULFUR_CORRECTION",
+        "details": "Application soufre élémentaire localisée",
+        "parameters": {
+          "dose": "8 kg/ha",
+          "depth": "5cm"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_13_1030",
+        "time": "10:30:00",
+        "category": "NUTRITION",
+        "action": "APPLY_ORGANIC_COMPOST",
+        "details": "Épandage compost mature haute qualité",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_13_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_13_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 13: Progression conforme. Score sol 59/100."
+  },
+  {
+    "day": 14,
+    "date": "2024-03-14",
+    "status": {
+      "pH": 7.33,
+      "EC": 2.69,
+      "MO": 1.88,
+      "compaction": 1.62,
+      "microbes": 4.8,
+      "score": 60
+    },
+    "weather": {
+      "temp": 21.6,
+      "humidity": 67.0,
+      "condition": "Partiellement nuageux"
+    },
+    "commands": [
+      {
+        "id": "CMD_14_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_14_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=7.33, EC=2.69",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_14_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 24mm, Duration: 45min",
+        "parameters": {
+          "volume": "20mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_14_0900",
+        "time": "09:00:00",
+        "category": "TRAITEMENT",
+        "action": "APPLY_SULFUR_CORRECTION",
+        "details": "Application soufre élémentaire localisée",
+        "parameters": {
+          "dose": "10 kg/ha",
+          "depth": "5cm"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_14_1030",
+        "time": "10:30:00",
+        "category": "NUTRITION",
+        "action": "APPLY_ORGANIC_COMPOST",
+        "details": "Épandage compost mature haute qualité",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_14_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_14_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 14: Progression conforme. Score sol 60/100."
+  },
+  {
+    "day": 15,
+    "date": "2024-03-15",
+    "status": {
+      "pH": 7.23,
+      "EC": 2.71,
+      "MO": 1.94,
+      "compaction": 1.65,
+      "microbes": 5.1,
+      "score": 63
+    },
+    "weather": {
+      "temp": 21.0,
+      "humidity": 56.0,
+      "condition": "Clair"
+    },
+    "commands": [
+      {
+        "id": "CMD_15_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_15_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=7.23, EC=2.71",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_15_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 19mm, Duration: 45min",
+        "parameters": {
+          "volume": "17mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_15_0900",
+        "time": "09:00:00",
+        "category": "TRAITEMENT",
+        "action": "APPLY_SULFUR_CORRECTION",
+        "details": "Application soufre élémentaire localisée",
+        "parameters": {
+          "dose": "9 kg/ha",
+          "depth": "5cm"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_15_1030",
+        "time": "10:30:00",
+        "category": "BIOLOGIE",
+        "action": "INOCULATION_MICROBIENNE",
+        "details": "Injection thé de compost oxygéné",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_15_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_15_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 15: Progression conforme. Score sol 63/100."
+  },
+  {
+    "day": 16,
+    "date": "2024-03-16",
+    "status": {
+      "pH": 7.03,
+      "EC": 2.77,
+      "MO": 2.02,
+      "compaction": 1.57,
+      "microbes": 5.2,
+      "score": 63
+    },
+    "weather": {
+      "temp": 23.4,
+      "humidity": 62.0,
+      "condition": "Clair"
+    },
+    "commands": [
+      {
+        "id": "CMD_16_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_16_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=7.03, EC=2.77",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_16_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 23mm, Duration: 45min",
+        "parameters": {
+          "volume": "22mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_16_0900",
+        "time": "09:00:00",
+        "category": "TRAITEMENT",
+        "action": "APPLY_SULFUR_CORRECTION",
+        "details": "Application soufre élémentaire localisée",
+        "parameters": {
+          "dose": "11 kg/ha",
+          "depth": "5cm"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_16_1030",
+        "time": "10:30:00",
+        "category": "BIOLOGIE",
+        "action": "INOCULATION_MICROBIENNE",
+        "details": "Injection thé de compost oxygéné",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_16_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_16_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 16: Progression conforme. Score sol 63/100."
+  },
+  {
+    "day": 17,
+    "date": "2024-03-17",
+    "status": {
+      "pH": 7.06,
+      "EC": 2.74,
+      "MO": 2.13,
+      "compaction": 1.54,
+      "microbes": 5.6,
+      "score": 66
+    },
+    "weather": {
+      "temp": 25.0,
+      "humidity": 64.0,
+      "condition": "Clair"
+    },
+    "commands": [
+      {
+        "id": "CMD_17_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_17_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=7.06, EC=2.74",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_17_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 17mm, Duration: 45min",
+        "parameters": {
+          "volume": "19mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_17_0900",
+        "time": "09:00:00",
+        "category": "TRAITEMENT",
+        "action": "APPLY_SULFUR_CORRECTION",
+        "details": "Application soufre élémentaire localisée",
+        "parameters": {
+          "dose": "9 kg/ha",
+          "depth": "5cm"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_17_1030",
+        "time": "10:30:00",
+        "category": "BIOLOGIE",
+        "action": "INOCULATION_MICROBIENNE",
+        "details": "Injection thé de compost oxygéné",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_17_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_17_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 17: Progression conforme. Score sol 66/100."
+  },
+  {
+    "day": 18,
+    "date": "2024-03-18",
+    "status": {
+      "pH": 7.12,
+      "EC": 2.62,
+      "MO": 2.2,
+      "compaction": 1.48,
+      "microbes": 6.0,
+      "score": 69
+    },
+    "weather": {
+      "temp": 18.6,
+      "humidity": 48.0,
+      "condition": "Ensoleillé"
+    },
+    "commands": [
+      {
+        "id": "CMD_18_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_18_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=7.12, EC=2.62",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_18_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 24mm, Duration: 45min",
+        "parameters": {
+          "volume": "21mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_18_0900",
+        "time": "09:00:00",
+        "category": "TRAITEMENT",
+        "action": "APPLY_SULFUR_CORRECTION",
+        "details": "Application soufre élémentaire localisée",
+        "parameters": {
+          "dose": "7 kg/ha",
+          "depth": "5cm"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_18_1030",
+        "time": "10:30:00",
+        "category": "BIOLOGIE",
+        "action": "INOCULATION_MICROBIENNE",
+        "details": "Injection thé de compost oxygéné",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_18_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_18_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 18: Progression conforme. Score sol 69/100."
+  },
+  {
+    "day": 19,
+    "date": "2024-03-19",
+    "status": {
+      "pH": 7.04,
+      "EC": 2.63,
+      "MO": 2.19,
+      "compaction": 1.5,
+      "microbes": 6.2,
+      "score": 71
+    },
+    "weather": {
+      "temp": 19.6,
+      "humidity": 54.0,
+      "condition": "Clair"
+    },
+    "commands": [
+      {
+        "id": "CMD_19_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_19_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=7.04, EC=2.63",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_19_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 16mm, Duration: 45min",
+        "parameters": {
+          "volume": "20mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_19_0900",
+        "time": "09:00:00",
+        "category": "TRAITEMENT",
+        "action": "APPLY_SULFUR_CORRECTION",
+        "details": "Application soufre élémentaire localisée",
+        "parameters": {
+          "dose": "9 kg/ha",
+          "depth": "5cm"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_19_1030",
+        "time": "10:30:00",
+        "category": "BIOLOGIE",
+        "action": "INOCULATION_MICROBIENNE",
+        "details": "Injection thé de compost oxygéné",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_19_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_19_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 19: Progression conforme. Score sol 71/100."
+  },
+  {
+    "day": 20,
+    "date": "2024-03-20",
+    "status": {
+      "pH": 6.93,
+      "EC": 2.58,
+      "MO": 2.29,
+      "compaction": 1.46,
+      "microbes": 6.3,
+      "score": 71
+    },
+    "weather": {
+      "temp": 15.9,
+      "humidity": 67.0,
+      "condition": "Ensoleillé"
+    },
+    "commands": [
+      {
+        "id": "CMD_20_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_20_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=6.93, EC=2.58",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_20_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 16mm, Duration: 45min",
+        "parameters": {
+          "volume": "25mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_20_1030",
+        "time": "10:30:00",
+        "category": "BIOLOGIE",
+        "action": "INOCULATION_MICROBIENNE",
+        "details": "Injection thé de compost oxygéné",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_20_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_20_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 20: Progression conforme. Score sol 71/100."
+  },
+  {
+    "day": 21,
+    "date": "2024-03-21",
+    "status": {
+      "pH": 6.97,
+      "EC": 2.55,
+      "MO": 2.29,
+      "compaction": 1.39,
+      "microbes": 6.6,
+      "score": 74
+    },
+    "weather": {
+      "temp": 25.5,
+      "humidity": 60.0,
+      "condition": "Partiellement nuageux"
+    },
+    "commands": [
+      {
+        "id": "CMD_21_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_21_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=6.97, EC=2.55",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_21_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 15mm, Duration: 45min",
+        "parameters": {
+          "volume": "25mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_21_1030",
+        "time": "10:30:00",
+        "category": "BIOLOGIE",
+        "action": "INOCULATION_MICROBIENNE",
+        "details": "Injection thé de compost oxygéné",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_21_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_21_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 21: Progression conforme. Score sol 74/100."
+  },
+  {
+    "day": 22,
+    "date": "2024-03-22",
+    "status": {
+      "pH": 6.95,
+      "EC": 2.52,
+      "MO": 2.35,
+      "compaction": 1.38,
+      "microbes": 7.0,
+      "score": 75
+    },
+    "weather": {
+      "temp": 23.5,
+      "humidity": 53.0,
+      "condition": "Clair"
+    },
+    "commands": [
+      {
+        "id": "CMD_22_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_22_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=6.95, EC=2.52",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_22_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 19mm, Duration: 45min",
+        "parameters": {
+          "volume": "24mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_22_1030",
+        "time": "10:30:00",
+        "category": "BIOLOGIE",
+        "action": "INOCULATION_MICROBIENNE",
+        "details": "Injection thé de compost oxygéné",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_22_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_22_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 22: Progression conforme. Score sol 75/100."
+  },
+  {
+    "day": 23,
+    "date": "2024-03-23",
+    "status": {
+      "pH": 6.91,
+      "EC": 2.48,
+      "MO": 2.43,
+      "compaction": 1.32,
+      "microbes": 7.2,
+      "score": 77
+    },
+    "weather": {
+      "temp": 23.4,
+      "humidity": 64.0,
+      "condition": "Partiellement nuageux"
+    },
+    "commands": [
+      {
+        "id": "CMD_23_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_23_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=6.91, EC=2.48",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_23_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 17mm, Duration: 45min",
+        "parameters": {
+          "volume": "17mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_23_1030",
+        "time": "10:30:00",
+        "category": "BIOLOGIE",
+        "action": "INOCULATION_MICROBIENNE",
+        "details": "Injection thé de compost oxygéné",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_23_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_23_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 23: Progression conforme. Score sol 77/100."
+  },
+  {
+    "day": 24,
+    "date": "2024-03-24",
+    "status": {
+      "pH": 6.88,
+      "EC": 2.39,
+      "MO": 2.48,
+      "compaction": 1.32,
+      "microbes": 7.6,
+      "score": 81
+    },
+    "weather": {
+      "temp": 24.9,
+      "humidity": 42.0,
+      "condition": "Partiellement nuageux"
+    },
+    "commands": [
+      {
+        "id": "CMD_24_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_24_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=6.88, EC=2.39",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_24_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 17mm, Duration: 45min",
+        "parameters": {
+          "volume": "25mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_24_1030",
+        "time": "10:30:00",
+        "category": "BIOLOGIE",
+        "action": "INOCULATION_MICROBIENNE",
+        "details": "Injection thé de compost oxygéné",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_24_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_24_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 24: Progression conforme. Score sol 81/100."
+  },
+  {
+    "day": 25,
+    "date": "2024-03-25",
+    "status": {
+      "pH": 6.91,
+      "EC": 2.39,
+      "MO": 2.52,
+      "compaction": 1.26,
+      "microbes": 7.8,
+      "score": 81
+    },
+    "weather": {
+      "temp": 23.5,
+      "humidity": 59.0,
+      "condition": "Ensoleillé"
+    },
+    "commands": [
+      {
+        "id": "CMD_25_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_25_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=6.91, EC=2.39",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_25_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 19mm, Duration: 45min",
+        "parameters": {
+          "volume": "21mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_25_1030",
+        "time": "10:30:00",
+        "category": "BIOLOGIE",
+        "action": "INOCULATION_MICROBIENNE",
+        "details": "Injection thé de compost oxygéné",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_25_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_25_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 25: Progression conforme. Score sol 81/100."
+  },
+  {
+    "day": 26,
+    "date": "2024-03-26",
+    "status": {
+      "pH": 6.86,
+      "EC": 2.35,
+      "MO": 2.61,
+      "compaction": 1.25,
+      "microbes": 8.0,
+      "score": 84
+    },
+    "weather": {
+      "temp": 25.1,
+      "humidity": 41.0,
+      "condition": "Ensoleillé"
+    },
+    "commands": [
+      {
+        "id": "CMD_26_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_26_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=6.86, EC=2.35",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_26_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 20mm, Duration: 45min",
+        "parameters": {
+          "volume": "21mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_26_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_26_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 26: Progression conforme. Score sol 84/100."
+  },
+  {
+    "day": 27,
+    "date": "2024-03-27",
+    "status": {
+      "pH": 6.7,
+      "EC": 2.3,
+      "MO": 2.67,
+      "compaction": 1.2,
+      "microbes": 8.4,
+      "score": 86
+    },
+    "weather": {
+      "temp": 25.1,
+      "humidity": 48.0,
+      "condition": "Ensoleillé"
+    },
+    "commands": [
+      {
+        "id": "CMD_27_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_27_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=6.70, EC=2.30",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_27_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 16mm, Duration: 45min",
+        "parameters": {
+          "volume": "25mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_27_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_27_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 27: Progression conforme. Score sol 86/100."
+  },
+  {
+    "day": 28,
+    "date": "2024-03-28",
+    "status": {
+      "pH": 6.71,
+      "EC": 2.29,
+      "MO": 2.72,
+      "compaction": 1.18,
+      "microbes": 8.6,
+      "score": 88
+    },
+    "weather": {
+      "temp": 19.3,
+      "humidity": 43.0,
+      "condition": "Clair"
+    },
+    "commands": [
+      {
+        "id": "CMD_28_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_28_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=6.71, EC=2.29",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_28_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 17mm, Duration: 45min",
+        "parameters": {
+          "volume": "19mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_28_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_28_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 28: Progression conforme. Score sol 88/100."
+  },
+  {
+    "day": 29,
+    "date": "2024-03-29",
+    "status": {
+      "pH": 6.66,
+      "EC": 2.24,
+      "MO": 2.76,
+      "compaction": 1.14,
+      "microbes": 8.9,
+      "score": 90
+    },
+    "weather": {
+      "temp": 21.0,
+      "humidity": 56.0,
+      "condition": "Ensoleillé"
+    },
+    "commands": [
+      {
+        "id": "CMD_29_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_29_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=6.66, EC=2.24",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_29_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 25mm, Duration: 45min",
+        "parameters": {
+          "volume": "19mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_29_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_29_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 29: Progression conforme. Score sol 90/100."
+  },
+  {
+    "day": 30,
+    "date": "2024-03-30",
+    "status": {
+      "pH": 6.62,
+      "EC": 2.21,
+      "MO": 2.84,
+      "compaction": 1.1,
+      "microbes": 9.2,
+      "score": 93
+    },
+    "weather": {
+      "temp": 16.1,
+      "humidity": 66.0,
+      "condition": "Ensoleillé"
+    },
+    "commands": [
+      {
+        "id": "CMD_30_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_30_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=6.62, EC=2.21",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_30_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 25mm, Duration: 45min",
+        "parameters": {
+          "volume": "25mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_30_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_30_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 30: Progression conforme. Score sol 93/100."
+  },
+  {
+    "day": 31,
+    "date": "2024-03-31",
+    "status": {
+      "pH": 6.6,
+      "EC": 2.17,
+      "MO": 2.88,
+      "compaction": 1.07,
+      "microbes": 9.5,
+      "score": 95
+    },
+    "weather": {
+      "temp": 23.4,
+      "humidity": 53.0,
+      "condition": "Ensoleillé"
+    },
+    "commands": [
+      {
+        "id": "CMD_31_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_31_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=6.60, EC=2.17",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_31_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 23mm, Duration: 45min",
+        "parameters": {
+          "volume": "16mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_31_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_31_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 31: Progression conforme. Score sol 95/100."
+  },
+  {
+    "day": 32,
+    "date": "2024-04-01",
+    "status": {
+      "pH": 6.53,
+      "EC": 2.13,
+      "MO": 2.94,
+      "compaction": 1.03,
+      "microbes": 9.7,
+      "score": 96
+    },
+    "weather": {
+      "temp": 24.5,
+      "humidity": 46.0,
+      "condition": "Partiellement nuageux"
+    },
+    "commands": [
+      {
+        "id": "CMD_32_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_32_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=6.53, EC=2.13",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_32_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 22mm, Duration: 45min",
+        "parameters": {
+          "volume": "20mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_32_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_32_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 32: Progression conforme. Score sol 96/100."
+  },
+  {
+    "day": 33,
+    "date": "2024-04-02",
+    "status": {
+      "pH": 6.5,
+      "EC": 2.1,
+      "MO": 3.0,
+      "compaction": 1.0,
+      "microbes": 10.0,
+      "score": 99
+    },
+    "weather": {
+      "temp": 21.7,
+      "humidity": 41.0,
+      "condition": "Ensoleillé"
+    },
+    "commands": [
+      {
+        "id": "CMD_33_0015",
+        "time": "00:15:00",
+        "category": "ANALYSE",
+        "action": "COLLECT_SENSOR_DATA",
+        "details": "Collecte données 20 capteurs",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_33_0600",
+        "time": "06:00:00",
+        "category": "PLANIFICATION",
+        "action": "GENERATE_DAILY_PLAN",
+        "details": "Optimisation pour pH=6.50, EC=2.10",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_33_0730",
+        "time": "07:30:00",
+        "category": "IRRIGATION",
+        "action": "START_IRRIGATION_CYCLE_1",
+        "details": "Volume: 15mm, Duration: 45min",
+        "parameters": {
+          "volume": "22mm",
+          "pressure": "2.5 bar"
+        },
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_33_1200",
+        "time": "12:00:00",
+        "category": "SURVEILLANCE",
+        "action": "DRONE_MULTISPECTRAL_SCAN",
+        "details": "Vol de contrôle indice NDVI/Thermique",
+        "status": "COMPLETED"
+      },
+      {
+        "id": "CMD_33_1900",
+        "time": "19:00:00",
+        "category": "ANALYSE",
+        "action": "DAILY_REPORT_GENERATION",
+        "details": "Consolidation données et calcul écarts",
+        "status": "COMPLETED"
+      }
+    ],
+    "summary": "Jour 33: Progression conforme. Score sol 99/100."
+  }
+]

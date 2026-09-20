@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0F6B5B">
+    <link rel="icon" type="image/png" href="../images/imagefav.png">
+    <link rel="apple-touch-icon" href="../images/imagefav.png">
+    <link rel="manifest" href="manifest.json">
+    <title>TERRANOVA - Analyse Financière</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/moroccan-theme.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <script src="../lang-data.js"></script>
+    <script src="../lang-system.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --emerald: #0F6B5B;
+            --gold: #C9A227;
+            --terracotta: #C46A3A;
+            --light-bg: #F8F4EA;
+            --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        /* ─── HERO BANNER ─── */
+        .fin-hero {
+            background: linear-gradient(135deg, #0a4a3d 0%, #0F6B5B 50%, #1a7a68 100%);
+            border-radius: 20px;
+            padding: 40px 45px;
+            margin-bottom: 35px;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        .fin-hero::before {
+            content: '📊';
+            position: absolute;
+            font-size: 220px;
+            right: -30px;
+            top: -40px;
+            opacity: 0.06;
+            line-height: 1;
+        }
+
+        .fin-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23C9A227' stroke-opacity='0.08' stroke-width='0.8'%3E%3Cpolygon points='30,2 58,17 58,43 30,58 2,43 2,17'/%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .fin-hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            margin: 0 0 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .fin-hero p {
+            opacity: .75;
+            font-size: 15px;
+            position: relative;
+            z-index: 1;
+            margin: 0;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(201, 162, 39, .25);
+            border: 1px solid rgba(201, 162, 39, .5);
+            border-radius: 30px;
+            padding: 6px 18px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .5px;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+        }
+
+        /* ─── KPI CARDS ─── */
+        .kpi-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+            gap: 18px;
+            margin-bottom: 35px;
+        }
+
+        .kpi-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 22px 20px;
+            box-shadow: var(--card-shadow);
+            border-top: 4px solid var(--emerald);
+            text-align: center;
+            transition: transform .25s, box-shadow .25s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, .1);
+        }
+
+        .kpi-card.gold {
+            border-top-color: var(--gold);
+        }
+
+        .kpi-card.terra {
+            border-top-color: var(--terracotta);
+        }
+
+        .kpi-card.green {
+            border-top-color: #4caf50;
+        }
+
+        .kpi-card.info {
+            border-top-color: #1565C0;
+        }
+
+        .kpi-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin: 0 auto 12px;
+            background: rgba(15, 107, 91, .08);
+        }
+
+        .kpi-card.gold .kpi-icon {
+            background: rgba(201, 162, 39, .12);
+        }
+
+        .kpi-card.terra .kpi-icon {
+            background: rgba(196, 106, 58, .12);
+        }
+
+        .kpi-card.green .kpi-icon {
+            background: rgba(76, 175, 80, .12);
+        }
+
+        .kpi-card.info .kpi-icon {
+            background: rgba(21, 101, 192, .12);
+        }
+
+        .kpi-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--emerald);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .kpi-card.gold .kpi-value {
+            color: var(--gold);
+        }
+
+        .kpi-card.terra .kpi-value {
+            color: var(--terracotta);
+        }
+
+        .kpi-card.green .kpi-value {
+            color: #2e7d32;
+        }
+
+        .kpi-card.info .kpi-value {
+            color: #1565C0;
+        }
+
+        .kpi-label {
+            font-size: 11px;
+            color: #777;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
+        /* ─── SECTION CARDS ─── */
+        .fin-section {
+            background: #fff;
+            border-radius: 18px;
+            padding: 32px 35px;
+            margin-bottom: 50px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(201, 162, 39, .12);
+        }
+
+        .fin-section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 17px;
+            color: var(--terracotta);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 0 25px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid rgba(196, 106, 58, .15);
+        }
+
+        .fin-section-title .badge {
+            background: rgba(196, 106, 58, .1);
+            color: var(--terracotta);
+            font-size: 10px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(196, 106, 58, .25);
+        }
+
+        /* ─── CHARTS ─── */
+        .chart-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .chart-grid.single {
+            grid-template-columns: 1fr;
+        }
+
+        @media (max-width: 900px) {
+            .chart-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .chart-box {
+            background: var(--light-bg);
+            border-radius: 14px;
+            padding: 22px;
+            border: 1px solid rgba(201, 162, 39, .15);
+            position: relative;
+        }
+
+        .chart-box h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: #444;
+            margin: 0 0 18px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chart-box canvas {
+            max-height: 300px;
+        }
+
+        /* ─── TABLES ─── */
+        .fin-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .fin-table th {
+            background: rgba(15, 107, 91, .08);
+            color: var(--emerald);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            border-bottom: 2px solid var(--emerald);
+        }
+
+        .fin-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(0, 0, 0, .05);
+            color: #333;
+        }
+
+        .fin-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .fin-table tr:hover {
+            background: #f9f6ee;
+        }
+
+        .fin-table .total-row td {
+            font-weight: 700;
+            color: var(--terracotta);
+            background: rgba(196, 106, 58, .05);
+            border-top: 2px solid rgba(196, 106, 58, .3);
+        }
+
+        .fin-table td.positive {
+            color: #2e7d32;
+            font-weight: 700;
+        }
+
+        .fin-table td.negative {
+            color: #c62828;
+            font-weight: 700;
+        }
+
+        .fin-table .highlight-row td {
+            background: rgba(76, 175, 80, .08);
+            border-left: 4px solid #4caf50;
+        }
+
+        .fin-table td .badge-tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            background: rgba(76, 175, 80, .12);
+            color: #2e7d32;
+            border: 1px solid rgba(76, 175, 80, .3);
+        }
+
+        /* ─── BUDGET DONUT SECTION ─── */
+        .budget-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        @media (max-width: 800px) {
+            .budget-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ─── BAR ITEMS (budget breakdown) ─── */
+        .budget-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            position: relative;
+            padding: 10px;
+            background: linear-gradient(0deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+            background-size: 100% 25px;
+            animation: gridMove 4s linear infinite;
+        }
+
+        @keyframes gridMove {
+            from { background-position: 0 0; }
+            to { background-position: 0 25px; }
+        }
+
+        .budget-bar-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .budget-bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .budget-bar-track {
+            background: rgba(0, 0, 0, .07);
+            border-radius: 8px;
+            height: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .budget-bar-fill {
+            height: 100%;
+            border-radius: 8px;
+            transition: width 1.2s cubic-bezier(.4, 0, .2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .budget-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255,255,255,0.2) 50%, 
+                transparent);
+            transform: translateX(-100%);
+            animation: shimmerBar 2.5s infinite;
+        }
+
+        @keyframes shimmerBar {
+            100% { transform: translateX(100%); }
+        }
+
+        /* ─── RECOMMENDATIONS ─── */
+        .rec-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 800px) {
+            .rec-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .rec-card {
+            background: var(--light-bg);
+            border-radius: 12px;
+            padding: 18px 20px;
+            border-left: 4px solid var(--emerald);
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            transition: .2s;
+        }
+
+        .rec-card:hover {
+            transform: translateX(4px);
+            background: #f0ede4;
+        }
+
+        .rec-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .rec-card h4 {
+            color: var(--emerald);
+            font-size: 14px;
+            margin: 0 0 5px;
+        }
+
+        .rec-card p {
+            color: #555;
+            font-size: 13px;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* ─── ROI TIMELINE ─── */
+        .roi-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-top: 20px;
+        }
+
+        .roi-row {
+            display: grid;
+            grid-template-columns: 100px 1fr 140px;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, .05);
+        }
+
+        .roi-year {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--emerald);
+        }
+
+        .roi-bar-wrap {
+            background: rgba(0, 0, 0, .06);
+            border-radius: 8px;
+            height: 12px;
+            overflow: hidden;
+        }
+
+        .roi-bar-inner {
+            height: 100%;
+            border-radius: 8px;
+            transition: width 1.4s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        .roi-amount {
+            font-size: 13px;
+            font-weight: 700;
+            color: #333;
+            text-align: right;
+        }
+
+        /* ─── DIVIDER ─── */
+        .fin-divider {
+            height: 4px;
+            background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--emerald));
+            border-radius: 4px;
+            margin: 10px 0 28px;
+            opacity: .3;
+        }
+
+        /* ─── ANIMATED COUNTER ─── */
+        .counter-anim {
+            display: inline;
+        }
+
+        /* ─── SCROLL ANIMATION ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Responsive overrides for financial page ── */
+        @media (max-width: 1024px) {
+            .fin-hero {
+                padding: 28px 22px;
+            }
+
+            .fin-hero h1 {
+                font-size: 20px;
+            }
+
+            .kpi-strip {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .fin-section {
+                padding: 22px 18px;
+            }
+
+            .chart-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .budget-layout {
+                grid-template-columns: 1fr !important;
+            }
+
+            .rec-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .roi-row {
+                grid-template-columns: 80px 1fr 120px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .fin-hero {
+                padding: 18px 14px;
+                border-radius: 14px;
+            }
+
+            .fin-hero h1 {
+                font-size: 15px;
+            }
+
+            .fin-hero::before {
+                font-size: 140px;
+            }
+
+            .kpi-strip {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .kpi-card {
+                padding: 14px 10px;
+            }
+
+            .kpi-value {
+                font-size: 15px;
+            }
+
+            .kpi-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+
+            .fin-section {
+                padding: 14px 12px;
+                border-radius: 12px;
+            }
+
+            .fin-section-title {
+                font-size: 13px;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+
+            .chart-box {
+                padding: 14px;
+            }
+
+            .chart-box canvas {
+                max-height: 200px !important;
+            }
+
+            .fin-table {
+                font-size: 12px;
+            }
+
+            .fin-table th,
+            .fin-table td {
+                padding: 8px 10px;
+            }
+
+            .rec-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .rec-card {
+                padding: 14px;
+            }
+
+            .roi-row {
+                grid-template-columns: 55px 1fr 80px;
+                gap: 6px;
+                font-size: 10px;
+            }
+
+            .roi-year {
+                font-size: 9px;
+            }
+
+            .hero-badge {
+                font-size: 9px;
+                padding: 4px 10px;
+            }
+        }
+    </style>
+    <!-- PWA Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Terranova">
+    <link rel="apple-touch-icon" href="../images/imagefav.png">
+    <meta name="theme-color" content="#0F6B5B">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Hamburger Menu Button (mobile/tablet) -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu" onclick="toggleMobileSidebar()">
+            <span></span><span></span><span></span>
+        </button>
+
+        <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeMobileSidebar()"></div>
+        <!-- Sidebar Navigation -->
+        <div class="sidebar-nav">
+            <button class="sidebar-toggle-btn"
+                onclick="document.querySelector('.dashboard-container').classList.toggle('sidebar-collapsed'); document.querySelector('.dashboard-container').classList.toggle('sidebar-open')"
+                title="Toggle Sidebar"></button>
+            <div class="sidebar-header"><span class="gaia-text">Terra</span><span class="eye-text">nova</span></div>
+            <div class="nav-item" onclick="window.location.href='index.html'" data-tooltip="Dashboard" data-i18n="nav_dashboard"><span
+                    class="nav-icon">🏠</span> <span class="nav-text">Dashboard</span></div>
+            <div class="nav-item" onclick="window.location.href='plan_parfait_arganier.html'"
+                data-tooltip="Plan Arganier" data-i18n="nav_plan"><span class="nav-icon">🌳</span> <span class="nav-text">Plan
+                    Arganier</span></div>
+            <div class="nav-item" onclick="window.location.href='plan_parfait_arganier.html?view=today'"
+                data-tooltip="Aujourd'hui" data-i18n="nav_today"><span class="nav-icon">📅</span> <span class="nav-text">Aujourd'hui</span>
+            </div>
+            <div class="nav-item" onclick="window.location.href='fournisseurs.html'" data-tooltip="Fournisseurs" data-i18n="nav_suppliers"><span
+                    class="nav-icon">🚛</span> <span class="nav-text">Fournisseurs</span></div>
+            <div class="nav-item active" data-tooltip="Analyse Financière" data-i18n="nav_finance"><span class="nav-icon">📊</span> <span
+                    class="nav-text">Analyse Financière</span></div>
+            <div class="nav-divider"></div>
+            <div class="nav-item back-btn" onclick="window.location.href='../map/index.html'"
+                data-tooltip="Retour Carte" data-i18n="nav_back_map">MAP <span class="nav-icon">🗺️</span> <span class="nav-text">Retour Carte</span>
+            </div>
+            
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+
+            <!-- Hero -->
+            <div class="fin-hero reveal">
+                <div class="hero-badge" data-i18n="fin_hero_badge">🌱 Arganier · 2 Hectares · 25 Ans</div>
+                <h1 data-i18n="fin_hero_title">📊 ANALYSE FINANCIÈRE COMPLÈTE</h1>
+                <p data-i18n="fin_hero_desc">Projections de revenus, budgets d'investissement, flux de trésorerie et retour sur investissement.
+                </p>
+            </div>
+
+            <!-- KPI Strip -->
+            <div class="kpi-strip reveal">
+                <div class="kpi-card">
+                    <div class="kpi-icon">🌳</div>
+                    <div class="kpi-value"><span class="counter-anim" data-target="300">0</span></div>
+                    <div class="kpi-label" data-i18n="fin_kpi_trees">Arbres plantés</div>
+                </div>
+                <div class="kpi-card gold">
+                    <div class="kpi-icon">💰</div>
+                    <div class="kpi-value"><span class="counter-anim" data-target="8875">0</span> DH</div>
+                    <div class="kpi-label" data-i18n="fin_kpi_invest">Investissement initial</div>
+                </div>
+                <div class="kpi-card terra">
+                    <div class="kpi-icon">📦</div>
+                    <div class="kpi-value">180 DH/kg</div>
+                    <div class="kpi-label" data-i18n="fin_kpi_price">Prix vente noix</div>
+                </div>
+                <div class="kpi-card green">
+                    <div class="kpi-icon">🏆</div>
+                    <div class="kpi-value">1 an et 3 j</div>
+                    <div class="kpi-label" data-i18n="fin_kpi_rentability">Délai de rentabilité</div>
+                </div>
+                <div class="kpi-card info">
+                    <div class="kpi-icon">📈</div>
+                    <div class="kpi-value">887 625 DH</div>
+                    <div class="kpi-label" data-i18n="fin_kpi_net_income">Revenu net 1 ans</div>
+                </div>
+            </div>
+
+            <!-- Section 1: Revenue Charts -->
+            <div class="fin-section reveal">
+                <h2 class="fin-section-title">
+                    <span data-i18n="fin_part1">📈 PARTIE 1 — ESTIMATION DU REVENU</span>
+                    <span class="badge" data-i18n="fin_badge_2ha">2 ha · Arganier</span>
+                </h2>
+
+                <!-- Horizontal layout: chart + table side by side -->
+                <div style="display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap;">
+
+                    <!-- Bar chart (left column) -->
+                    <div class="chart-box" style="flex:1 1 340px;min-width:280px;">
+                        <h4 data-i18n="fin_chart_rev_year">📊 Revenu Net par Année (DH)</h4>
+                        <canvas id="barRevenueChart" style="max-height:300px;"></canvas>
+                    </div>
+                    <div style="flex:1 1 320px;min-width:260px;overflow-x:auto;">
+                        <table class="fin-table">
+                            <thead>
+                                <tr>
+                                    <th data-i18n="fin_table_period">Période</th>
+                                    <th data-i18n="fin_table_prod">Production totale</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-i18n="fin_year_1">Année 1 · Installation</td>
+                                    <td data-i18n="fin_year_1_desc">Cultures intercalaires</td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="fin_year_2">Année 2 · Début production</td>
+                                    <td data-i18n="fin_year_2_desc">5 000 kg (20 kg × 250 arbres)</td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="fin_year_3">Année 3 · Croissance</td>
+                                    <td data-i18n="fin_year_3">Année 3 · Croissance</td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="fin_year_4">Année 4 · Croissance</td>
+                                    <td data-i18n="fin_year_4">Année 4 · Croissance</td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="fin_year_5">Année 5 · Croissance</td>
+                                    <td data-i18n="fin_year_5">Année 5 · Croissance</td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="fin_year_6_25">Années 6–25 · Pleine production</td>
+                                    <td data-i18n="fin_year_6_25_desc">9 000 kg/an (30 kg × 300 arbres)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><!-- /table column -->
+
+                </div><!-- /flex row -->
+            </div><!-- /fin-section part 1 -->
+
+
+            <!-- Section 2 : Budget Matériel -->
+            <div class="fin-section reveal">
+                <h2 class="fin-section-title">
+                    <span data-i18n="fin_part2">🔧 PARTIE 2 — BUDGET DU MATÉRIEL</span>
+                    <span class="badge" data-i18n="fin_init_invest_badge">Investissement initial : 8 875 DH</span>
+                </h2>
+
+                <div class="budget-layout">
+                    <!-- Donut chart -->
+                    <div class="chart-box" style="background:#fff;">
+                        <h4 data-i18n="fin_chart_invest_dist">🍩 Répartition de l'investissement</h4>
+                        <canvas id="donutBudgetChart" style="max-height:280px;"></canvas>
+                    </div>
+                    <!-- Bar items -->
+                    <div>
+                        <div class="budget-bars" id="budgetBars"></div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Section 3 : Rentabilité -->
+            <div class="fin-section reveal">
+                <h2 class="fin-section-title">
+                    <span data-i18n="fin_part3">⚡ PARTIE 3 — RENTABILITÉ &amp; FLUX DE TRÉSORERIE</span>
+                    <span class="badge" data-i18n="fin_roi_badge">ROI : 1 an et 3 jours</span>
+                </h2>
+
+                <div style="display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap;">
+                    
+                    <div class="chart-box" style="flex:1 1 400px;min-width:280px;">
+                        <h4 data-i18n="fin_chart_cashflow">📈 Flux de trésorerie cumulé sur 25 ans</h4>
+                        <canvas id="cashflowChart" style="max-height:320px;"></canvas>
+                    </div>
+
+                    <div style="flex:1 1 300px;min-width:260px;">
+                        <h3 style="font-family:'Orbitron',sans-serif;font-size:14px;color:var(--emerald);margin:0 0 15px;" data-i18n="fin_roi_progression">
+                            Progression vers le Retour sur Investissement</h3>
+                        <div class="roi-timeline" id="roiTimeline" style="margin-top:0;"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Section 4 : Evolution Production -->
+            <div class="fin-section reveal">
+                <h2 class="fin-section-title">
+                    <span data-i18n="fin_part4">🌿 PARTIE 4 — ÉVOLUTION DE LA PRODUCTION</span>
+                    <span class="badge" data-i18n="fin_unit_kg_300trees">kg · 300 arbres</span>
+                </h2>
+                <div class="chart-grid">
+                    <div class="chart-box">
+                        <h4 data-i18n="fin_chart_prod_annual">🌰 Production annuelle de noix (kg)</h4>
+                        <canvas id="productionChart"></canvas>
+                    </div>
+                    <div class="chart-box">
+                        <h4 data-i18n="fin_chart_rev_dist">🥧 Répartition du revenu sur 25 ans</h4>
+                        <canvas id="revenuePieChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5 : Recommandations -->
+            <div class="fin-section reveal">
+                <h2 class="fin-section-title" data-i18n="fin_part5">
+                    🔑 PARTIE 5 — RECOMMANDATIONS STRATÉGIQUES
+                </h2>
+                <div class="rec-grid">
+                    <div class="rec-card">
+                        <div class="rec-icon">🏛️</div>
+                        <div>
+                            <h4 data-i18n="fin_rec1_title">Subventions ORMVA Saïss</h4>
+                            <p data-i18n="fin_rec1_desc">Profitez de la subvention plantation de 3 DH/pied pour réduire votre investissement de
+                                ~900 DH sur 300 plants.</p>
+                        </div>
+                    </div>
+                    <div class="rec-card" style="border-left-color:var(--gold);">
+                        <div class="rec-icon">🤝</div>
+                        <div>
+                            <h4 data-i18n="fin_rec2_title">Contractualiser la vente</h4>
+                            <p data-i18n="fin_rec2_desc">Sécurisez le prix de 180 DH/kg avec une coopérative ou acheteur direct avant la mise en
+                                production (année 2).</p>
+                        </div>
+                    </div>
+                    <div class="rec-card" style="border-left-color:var(--terracotta);">
+                        <div class="rec-icon">💧</div>
+                        <div>
+                            <h4 data-i18n="fin_rec3_title">Prioriser le goutte-à-goutte</h4>
+                            <p data-i18n="fin_rec3_desc">Le système d'irrigation (4 100 DH) est l'investissement le plus rentable — il détermine
+                                la survie des plants les premières années.</p>
+                        </div>
+                    </div>
+                    <div class="rec-card" style="border-left-color:#1565C0;">
+                        <div class="rec-icon">👨‍🌾</div>
+                        <div>
+                            <h4 data-i18n="fin_rec4_title">Entraide agricole</h4>
+                            <p data-i18n="fin_rec4_desc">Regroupez-vous avec d'autres agriculteurs pour l'achat groupé de plants (prix dégressif)
+                                et le transport partagé des intrants.</p>
+                        </div>
+                    </div>
+                    <div class="rec-card" style="border-left-color:#7b1fa2;">
+                        <div class="rec-icon">🌾</div>
+                        <div>
+                            <h4 data-i18n="fin_rec5_title">Cultures intercalaires (A1–A3)</h4>
+                            <p data-i18n="fin_rec5_desc">Semez orge, féverole et luzerne entre les arganiers pour générer un revenu dès la 1ère
+                                année et améliorer la fertilité du sol.</p>
+                        </div>
+                    </div>
+                    <div class="rec-card" style="border-left-color:#2e7d32;">
+                        <div class="rec-icon">📊</div>
+                        <div>
+                            <h4 data-i18n="fin_rec6_title">Suivi financier mensuel</h4>
+                            <p data-i18n="fin_rec6_desc">Tenez un carnet de bord mensuel pour suivre les charges réelles vs estimées et optimiser
+                                la trésorerie dès la 2ème année.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /main-content -->
+    </div><!-- /dashboard-container -->
+
+    <script>
+        /* ============================================================
+           DATA
+           ============================================================ */
+        const years = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A10', 'A15', 'A20', 'A25'];
+        const revenueNet = [1000, 895500, 1002000, 1142400, 1344000, 1614000, 1614000, 1614000, 1614000, 1614000];
+        const cumulative = [-7875, 887625, 1889625, 3032025, 4376025,
+        4376025 + 1614000,
+        4376025 + 1614000 * 5,
+        4376025 + 1614000 * 10,
+        4376025 + 1614000 * 15,
+            36656025];
+
+        const EMERALD = '#0F6B5B';
+        const GOLD = '#C9A227';
+        const TERRACOTTA = '#C46A3A';
+
+        const chartDefaults = {
+            font: { family: 'Inter, sans-serif' },
+            color: '#555'
+        };
+        Chart.defaults.font.family = 'Inter, sans-serif';
+        Chart.defaults.color = '#555';
+
+        /* ============================================================
+           1. BAR REVENUE CHART
+           ============================================================ */
+        new Chart(document.getElementById('barRevenueChart'), {
+            type: 'bar',
+            data: {
+                labels: years,
+                datasets: [{
+                    label: 'Revenu Net (DH)',
+                    data: revenueNet,
+                    backgroundColor: years.map((_, i) =>
+                        i === 0 ? 'rgba(196,106,58,.5)' :
+                            i < 2 ? 'rgba(201,162,39,.6)' :
+                                'rgba(15,107,91,.7)'
+                    ),
+                    borderColor: years.map((_, i) =>
+                        i === 0 ? TERRACOTTA :
+                            i < 2 ? GOLD :
+                                EMERALD
+                    ),
+                    borderWidth: 2,
+                    borderRadius: 6,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: ctx => ' ' + ctx.parsed.y.toLocaleString('fr-MA') + ' DH'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        ticks: {
+                            callback: v => (v >= 1e6 ? (v / 1e6).toFixed(1) + 'M' : (v / 1e3).toFixed(0) + 'k') + ' DH'
+                        },
+                        grid: { color: 'rgba(0,0,0,.05)' }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        /* ============================================================
+           2. CUMULATIVE LINE CHART (ROI View)
+           ============================================================ */
+        // Note: The element ID was cumulativeChart in previous JS but we have cashflowChart in HTML. 
+        // Syncing with cashflowChart.
+        new Chart(document.getElementById('cashflowChart'), {
+            type: 'line',
+            data: {
+                labels: ['A0','A1', 'A2', 'A3', 'A4', 'A5', 'A25'],
+                datasets: [{
+                    label: 'Flux cumulé',
+                    data: [-8875, -7875, 887625, 1889625, 3032025, 4376025, 36656025],
+                    borderColor: EMERALD,
+                    backgroundColor: 'rgba(15,107,91,.08)',
+                    borderWidth: 3,
+                    pointBackgroundColor: [-8875, -7875, 887625, 1889625, 3032025].map(v => v < 0 ? TERRACOTTA : EMERALD),
+                    pointRadius: 6,
+                    pointHoverRadius: 9,
+                    fill: true,
+                    tension: .35
+                },
+                {
+                    label: 'Seuil zéro',
+                    data: [0,0,0,0,0,0,0],
+                    borderColor: 'rgba(198,40,40,.4)',
+                    borderWidth: 2,
+                    borderDash: [6, 4],
+                    pointRadius: 0,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: ctx => ' ' + ctx.parsed.y.toLocaleString('fr-MA') + ' DH'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        ticks: {
+                            callback: v => (v >= 1e6 ? (v / 1e6).toFixed(1) + 'M' : v >= 1e3 ? (v / 1e3).toFixed(0) + 'k' : v) + ' DH'
+                        },
+                        grid: { color: 'rgba(0,0,0,.05)' }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        /* ============================================================
+           3. DONUT BUDGET CHART
+           ============================================================ */
+        new Chart(document.getElementById('donutBudgetChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Irrigation', 'Plants d\'argan', 'Diagnostic sol', 'Outillage', 'Semences', 'Divers & Transport'],
+                datasets: [{
+                    data: [4100, 2400, 680, 655, 480, 560],
+                    backgroundColor: [EMERALD, GOLD, TERRACOTTA, '#1565C0', '#7b1fa2', '#616161'],
+                    borderColor: '#fff',
+                    borderWidth: 3,
+                    hoverOffset: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                cutout: '62%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { padding: 12, boxWidth: 12, font: { size: 12 } }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: ctx => ' ' + ctx.label + ' : ' + ctx.parsed.toLocaleString('fr-MA') + ' DH'
+                        }
+                    }
+                }
+            }
+        });
+
+        function renderBudgetBars() {
+            const barsEl = document.getElementById('budgetBars');
+            if (!barsEl) return;
+            const lang = localStorage.getItem('terranova_lang') || 'fr';
+            const sectionVisible = barsEl.closest('.reveal').classList.contains('visible');
+            barsEl.innerHTML = '';
+            const items = [
+                { key: 'fin_label_irrigation', amount: 4100, total: 8875, color: EMERALD },
+                { key: 'fin_label_plants', amount: 2400, total: 8875, color: GOLD },
+                { key: 'fin_label_soil', amount: 680, total: 8875, color: TERRACOTTA },
+                { key: 'fin_label_tools', amount: 655, total: 8875, color: '#1565C0' },
+                { key: 'fin_label_other', amount: 560, total: 8875, color: '#616161' },
+                { key: 'fin_label_seeds', amount: 480, total: 8875, color: '#7b1fa2' },
+            ];
+            items.forEach((item, index) => {
+                const pct = ((item.amount / item.total) * 100).toFixed(1);
+                const label = t(item.key);
+                barsEl.innerHTML += `
+                    <div class="budget-bar-item">
+                        <div class="budget-bar-label">
+                            <span>${label}</span>
+                            <span style="color:${item.color};font-weight:700;">${item.amount.toLocaleString(lang === 'ar' ? 'ar-MA' : 'fr-MA')} DH · ${pct}%</span>
+                        </div>
+                        <div class="budget-bar-track">
+                            <div class="budget-bar-fill" data-width="${pct}" style="width:${sectionVisible ? pct : 0}%;background:${item.color};"></div>
+                        </div>
+                    </div>`;
+            });
+        }
+
+        function renderRoiTimeline() {
+            const roiEl = document.getElementById('roiTimeline');
+            if (!roiEl) return;
+            const sectionVisible = roiEl.closest('.reveal').classList.contains('visible');
+            roiEl.innerHTML = '';
+            const roiData = [
+                { yearKey: 'fin_year_0', amount: -8875, label: '–8 875 DH', color: '#c62828', pct: 2 },
+                { yearKey: 'fin_year_1', amount: -7875, label: '–7 875 DH', color: '#ef9a9a', pct: 4 },
+                { yearKey: 'fin_year_2', amount: 887625, label: '+887 625 DH ✅', color: '#4caf50', pct: 35 },
+                { yearKey: 'fin_year_3', amount: 1889625, label: '+1,89 M DH', color: EMERALD, pct: 55 },
+                { yearKey: 'fin_year_5', amount: 4376025, label: '+4,38 M DH', color: EMERALD, pct: 75 },
+                { yearKey: 'fin_year_25', amount: 36656025, label: '+36,66 M DH 🏆', color: GOLD, pct: 100 },
+            ];
+            roiData.forEach(r => {
+                const year = t(r.yearKey);
+                roiEl.innerHTML += `
+                    <div class="roi-row">
+                        <div class="roi-year">${year}</div>
+                        <div class="roi-bar-wrap">
+                            <div class="roi-bar-inner" data-width="${r.pct}" style="width:${sectionVisible ? r.pct : 0}%;background:${r.color};"></div>
+                        </div>
+                        <div class="roi-amount" style="color:${r.color};">${r.label}</div>
+                    </div>`;
+            });
+        }
+
+        // Initial render
+        renderBudgetBars();
+        renderRoiTimeline();
+
+        /* ============================================================
+           5. PRODUCTION BAR CHART
+           ============================================================ */
+        new Chart(document.getElementById('productionChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Année 1', 'Année 2', 'Année 3', 'Année 4', 'Année 5', 'Années 6+'],
+                datasets: [{
+                    label: 'Production (kg)',
+                    data: [0, 5000, 5600, 6380, 7500, 9000],
+                    backgroundColor: [
+                        'rgba(201,162,39,.25)',
+                        'rgba(15,107,91,.4)',
+                        'rgba(15,107,91,.55)',
+                        'rgba(15,107,91,.7)',
+                        'rgba(15,107,91,.85)',
+                        'rgba(15,107,91,1)'
+                    ],
+                    borderColor: [GOLD, EMERALD, EMERALD, EMERALD, EMERALD, EMERALD],
+                    borderWidth: 2,
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: ctx => ' ' + ctx.parsed.y.toLocaleString('fr-MA') + ' kg'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        ticks: { callback: v => v.toLocaleString('fr-MA') + ' kg' },
+                        grid: { color: 'rgba(0,0,0,.05)' }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        /* ============================================================
+           6. REVENUE PIE CHART (25Y breakdown)
+           ============================================================ */
+        new Chart(document.getElementById('revenuePieChart'), {
+            type: 'pie',
+            data: {
+                labels: ['Année 1 (0%)', 'Année 2 (2,4%)', 'Années 3–5 (9,5%)', 'Années 6–25 (88,1%)'],
+                datasets: [{
+                    data: [1000, 895500, 3488400, 32280000],
+                    backgroundColor: [
+                        'rgba(201,162,39,.4)',
+                        'rgba(196,106,58,.6)',
+                        'rgba(15,107,91,.6)',
+                        EMERALD
+                    ],
+                    borderColor: '#fff',
+                    borderWidth: 3,
+                    hoverOffset: 12
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { padding: 12, boxWidth: 12, font: { size: 12 } }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: ctx => ' ' + ctx.label + ' : ' + ctx.parsed.toLocaleString('fr-MA') + ' DH'
+                        }
+                    }
+                }
+            }
+        });
+
+        /* ============================================================
+           ANIMATED COUNTERS
+           ============================================================ */
+        function animateCounter(el) {
+            const target = parseInt(el.dataset.target, 10);
+            const duration = 1600;
+            const start = performance.now();
+            const update = (now) => {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const ease = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.round(ease * target).toLocaleString('fr-MA');
+                if (progress < 1) requestAnimationFrame(update);
+            };
+            requestAnimationFrame(update);
+        }
+
+        /* ============================================================
+           SCROLL REVEAL + ANIMATE BARS
+           ============================================================ */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+
+                    // Counters
+                    entry.target.querySelectorAll('.counter-anim[data-target]').forEach(el => animateCounter(el));
+
+                    // Bar fills with staggered delay
+                    const bars = entry.target.querySelectorAll('[data-width]');
+                    bars.forEach((el, index) => {
+                        setTimeout(() => {
+                            el.style.width = el.dataset.width + '%';
+                        }, index * 200); // 200ms elegant delay between each bar
+                    });
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        /* ============================================================
+           DYNAMIC LANGUAGE SWITCHER FOR CHARTS & LISTS
+           ============================================================ */
+        window.addEventListener('terranovaLanguageChanged', (e) => {
+            const lang = e.detail;
+            const data = langData[lang];
+
+            // 1. Update KPI Counters manually if needed (already handled by i18n in HTML for labels, but values are dynamic)
+            // Note: The counter animation might need to restart if user wants, but usually static values are fine.
+
+            // 2. Update Budget Bars
+            renderBudgetBars();
+
+            // 3. Update ROI Timeline
+            renderRoiTimeline();
+
+            // 4. Update Charts
+            const donutChart = Chart.getChart('donutBudgetChart');
+            if (donutChart) {
+                donutChart.data.labels = [
+                    data['fin_label_irrigation'], data['fin_label_plants'], data['fin_label_soil'],
+                    data['fin_label_tools'], data['fin_label_other'], data['fin_label_seeds']
+                ];
+                donutChart.update();
+            }
+
+            // Re-labeling production chart
+            const prodChart = Chart.getChart('productionChart');
+            if (prodChart) {
+                prodChart.data.labels = [
+                    data['fin_year_1'], data['fin_year_2'], data['fin_year_3'],
+                    data['fin_year_4'], data['fin_year_5'], data['fin_year_6_25']
+                ];
+                prodChart.update();
+            }
+
+            // Re-labeling revenue pie chart
+            const pieChart = Chart.getChart('revenuePieChart');
+            if (pieChart) {
+                pieChart.data.labels = [
+                    data['fin_year_1'] + ' (0%)', data['fin_year_2'] + ' (2,4%)',
+                    data['fin_year_3'] + '–A5 (9,5%)', data['fin_year_6_25'] + ' (88,1%)'
+                ];
+                pieChart.update();
+            }
+        });
+    </script>
+    <!-- Mobile Sidebar Toggle -->
+    <script>
+        function toggleMobileSidebar() {
+            const sidebar = document.querySelector('.sidebar-nav');
+            const overlay = document.getElementById('sidebarOverlay');
+            const btn = document.getElementById('hamburgerBtn');
+            const isOpen = sidebar.classList.toggle('is-sidebar-open');
+            overlay.classList.toggle('is-sidebar-open', isOpen);
+            btn.classList.toggle('is-open', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+        function closeMobileSidebar() {
+            const sidebar = document.querySelector('.sidebar-nav');
+            const overlay = document.getElementById('sidebarOverlay');
+            const btn = document.getElementById('hamburgerBtn');
+            sidebar.classList.remove('is-sidebar-open');
+            overlay.classList.remove('is-sidebar-open');
+            btn.classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) { closeMobileSidebar(); }
+        });
+    </script>
+    <!-- PWA Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('ServiceWorker registered'))
+                    .catch(err => console.log('ServiceWorker registration failed: ', err));
+            });
+        }
+    </script>
+</body>
+
+</html>

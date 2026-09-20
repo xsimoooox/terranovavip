@@ -1,0 +1,1872 @@
+[
+    {
+        "day": 1,
+        "date": "2024-03-01",
+        "phase": "PHASE 1: CORRECTION CHIMIQUE URGENCE",
+        "metrics": {
+            "ph": 7.74,
+            "ec": 3.22,
+            "mo": 1.39,
+            "score": 39,
+            "micro_org": 2.4,
+            "temp_sol": 23.8,
+            "humidite": 31.5
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_01_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_01_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "09:00:00",
+                "id": "CMD_01_003",
+                "action": "EPANDAGE_SOUFRE",
+                "category": "INTERVENTION",
+                "details": "Application correcteur pH. Dose calculée: 263 kg/ha",
+                "params": {
+                    "Dose": "235 kg",
+                    "Vitesse": "6 km/h"
+                }
+            },
+            {
+                "time": "14:00:00",
+                "id": "CMD_01_004",
+                "action": "IRRIGATION_LESSIVAGE",
+                "category": "IRRIGATION",
+                "details": "Cycle court pour activation correcteur pH",
+                "params": {
+                    "Volume": "12 mm",
+                    "Durée": "45 min"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_01_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J1. Sauvegarde Cloud. Préparation J2"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 2,
+        "date": "2024-03-02",
+        "phase": "PHASE 1: CORRECTION CHIMIQUE URGENCE",
+        "metrics": {
+            "ph": 7.64,
+            "ec": 3.14,
+            "mo": 1.56,
+            "score": 45,
+            "micro_org": 2.5,
+            "temp_sol": 20.3,
+            "humidite": 31.8
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_02_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_02_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "09:00:00",
+                "id": "CMD_02_003",
+                "action": "EPANDAGE_SOUFRE",
+                "category": "INTERVENTION",
+                "details": "Application correcteur pH. Dose calculée: 266 kg/ha",
+                "params": {
+                    "Dose": "258 kg",
+                    "Vitesse": "6 km/h"
+                }
+            },
+            {
+                "time": "14:00:00",
+                "id": "CMD_02_004",
+                "action": "IRRIGATION_LESSIVAGE",
+                "category": "IRRIGATION",
+                "details": "Cycle court pour activation correcteur pH",
+                "params": {
+                    "Volume": "12 mm",
+                    "Durée": "45 min"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_02_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J2. Sauvegarde Cloud. Préparation J3"
+            }
+        ],
+        "alerts": [
+            {
+                "level": "WARNING",
+                "message": "Dérive légère pH détectée secteur Nord",
+                "time": "11:45:00"
+            }
+        ]
+    },
+    {
+        "day": 3,
+        "date": "2024-03-03",
+        "phase": "PHASE 1: CORRECTION CHIMIQUE URGENCE",
+        "metrics": {
+            "ph": 7.53,
+            "ec": 2.87,
+            "mo": 1.64,
+            "score": 49,
+            "micro_org": 3.4,
+            "temp_sol": 22.0,
+            "humidite": 31.7
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_03_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_03_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "09:00:00",
+                "id": "CMD_03_003",
+                "action": "EPANDAGE_SOUFRE",
+                "category": "INTERVENTION",
+                "details": "Application correcteur pH. Dose calculée: 227 kg/ha",
+                "params": {
+                    "Dose": "265 kg",
+                    "Vitesse": "6 km/h"
+                }
+            },
+            {
+                "time": "14:00:00",
+                "id": "CMD_03_004",
+                "action": "IRRIGATION_LESSIVAGE",
+                "category": "IRRIGATION",
+                "details": "Cycle court pour activation correcteur pH",
+                "params": {
+                    "Volume": "12 mm",
+                    "Durée": "45 min"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_03_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J3. Sauvegarde Cloud. Préparation J4"
+            }
+        ],
+        "alerts": [
+            {
+                "level": "WARNING",
+                "message": "Dérive légère pH détectée secteur Nord",
+                "time": "11:45:00"
+            }
+        ]
+    },
+    {
+        "day": 4,
+        "date": "2024-03-04",
+        "phase": "PHASE 1: CORRECTION CHIMIQUE URGENCE",
+        "metrics": {
+            "ph": 7.43,
+            "ec": 2.92,
+            "mo": 1.81,
+            "score": 54,
+            "micro_org": 4.2,
+            "temp_sol": 20.7,
+            "humidite": 29.7
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_04_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_04_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "09:00:00",
+                "id": "CMD_04_003",
+                "action": "EPANDAGE_SOUFRE",
+                "category": "INTERVENTION",
+                "details": "Application correcteur pH. Dose calculée: 207 kg/ha",
+                "params": {
+                    "Dose": "272 kg",
+                    "Vitesse": "6 km/h"
+                }
+            },
+            {
+                "time": "14:00:00",
+                "id": "CMD_04_004",
+                "action": "IRRIGATION_LESSIVAGE",
+                "category": "IRRIGATION",
+                "details": "Cycle court pour activation correcteur pH",
+                "params": {
+                    "Volume": "12 mm",
+                    "Durée": "45 min"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_04_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J4. Sauvegarde Cloud. Préparation J5"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 5,
+        "date": "2024-03-05",
+        "phase": "PHASE 1: CORRECTION CHIMIQUE URGENCE",
+        "metrics": {
+            "ph": 7.26,
+            "ec": 2.83,
+            "mo": 1.9,
+            "score": 59,
+            "micro_org": 5.1,
+            "temp_sol": 22.0,
+            "humidite": 31.3
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_05_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_05_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "09:00:00",
+                "id": "CMD_05_003",
+                "action": "EPANDAGE_SOUFRE",
+                "category": "INTERVENTION",
+                "details": "Application correcteur pH. Dose calculée: 196 kg/ha",
+                "params": {
+                    "Dose": "223 kg",
+                    "Vitesse": "6 km/h"
+                }
+            },
+            {
+                "time": "14:00:00",
+                "id": "CMD_05_004",
+                "action": "IRRIGATION_LESSIVAGE",
+                "category": "IRRIGATION",
+                "details": "Cycle court pour activation correcteur pH",
+                "params": {
+                    "Volume": "12 mm",
+                    "Durée": "45 min"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_05_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J5. Sauvegarde Cloud. Préparation J6"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 6,
+        "date": "2024-03-06",
+        "phase": "PHASE 1: CORRECTION CHIMIQUE URGENCE",
+        "metrics": {
+            "ph": 7.2,
+            "ec": 2.82,
+            "mo": 2.04,
+            "score": 62,
+            "micro_org": 5.4,
+            "temp_sol": 21.8,
+            "humidite": 31.6
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_06_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_06_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "09:00:00",
+                "id": "CMD_06_003",
+                "action": "EPANDAGE_SOUFRE",
+                "category": "INTERVENTION",
+                "details": "Application correcteur pH. Dose calculée: 202 kg/ha",
+                "params": {
+                    "Dose": "184 kg",
+                    "Vitesse": "6 km/h"
+                }
+            },
+            {
+                "time": "14:00:00",
+                "id": "CMD_06_004",
+                "action": "IRRIGATION_LESSIVAGE",
+                "category": "IRRIGATION",
+                "details": "Cycle court pour activation correcteur pH",
+                "params": {
+                    "Volume": "12 mm",
+                    "Durée": "45 min"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_06_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J6. Sauvegarde Cloud. Préparation J7"
+            }
+        ],
+        "alerts": [
+            {
+                "level": "WARNING",
+                "message": "Dérive légère pH détectée secteur Nord",
+                "time": "11:45:00"
+            }
+        ]
+    },
+    {
+        "day": 7,
+        "date": "2024-03-07",
+        "phase": "PHASE 1: CORRECTION CHIMIQUE URGENCE",
+        "metrics": {
+            "ph": 7.12,
+            "ec": 2.7,
+            "mo": 2.11,
+            "score": 67,
+            "micro_org": 6.1,
+            "temp_sol": 20.4,
+            "humidite": 30.9
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_07_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_07_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "09:00:00",
+                "id": "CMD_07_003",
+                "action": "EPANDAGE_SOUFRE",
+                "category": "INTERVENTION",
+                "details": "Application correcteur pH. Dose calculée: 256 kg/ha",
+                "params": {
+                    "Dose": "213 kg",
+                    "Vitesse": "6 km/h"
+                }
+            },
+            {
+                "time": "14:00:00",
+                "id": "CMD_07_004",
+                "action": "IRRIGATION_LESSIVAGE",
+                "category": "IRRIGATION",
+                "details": "Cycle court pour activation correcteur pH",
+                "params": {
+                    "Volume": "12 mm",
+                    "Durée": "45 min"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_07_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J7. Sauvegarde Cloud. Préparation J8"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 8,
+        "date": "2024-03-08",
+        "phase": "PHASE 2: RESTRUCTURATION ORGANIQUE",
+        "metrics": {
+            "ph": 7.08,
+            "ec": 2.66,
+            "mo": 2.24,
+            "score": 71,
+            "micro_org": 6.3,
+            "temp_sol": 18.8,
+            "humidite": 28.9
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_08_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_08_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "08:30:00",
+                "id": "CMD_08_003",
+                "action": "APPORT_COMPOST",
+                "category": "FERTILISATION",
+                "details": "Incorporation matière organique enrichie",
+                "params": {
+                    "Type": "Certifié A+",
+                    "Qté": "2 T/ha"
+                }
+            },
+            {
+                "time": "16:00:00",
+                "id": "CMD_08_004",
+                "action": "ROTOVATOR_PRECISION",
+                "category": "TRAVAIL_SOL",
+                "details": "Mélange couche superficielle 0-15cm",
+                "params": {
+                    "Profondeur": "12 cm",
+                    "RPM": "540"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_08_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J8. Sauvegarde Cloud. Préparation J9"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 9,
+        "date": "2024-03-09",
+        "phase": "PHASE 2: RESTRUCTURATION ORGANIQUE",
+        "metrics": {
+            "ph": 7.06,
+            "ec": 2.57,
+            "mo": 2.29,
+            "score": 72,
+            "micro_org": 6.6,
+            "temp_sol": 22.8,
+            "humidite": 31.8
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_09_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_09_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "08:30:00",
+                "id": "CMD_09_003",
+                "action": "APPORT_COMPOST",
+                "category": "FERTILISATION",
+                "details": "Incorporation matière organique enrichie",
+                "params": {
+                    "Type": "Certifié A+",
+                    "Qté": "2 T/ha"
+                }
+            },
+            {
+                "time": "16:00:00",
+                "id": "CMD_09_004",
+                "action": "ROTOVATOR_PRECISION",
+                "category": "TRAVAIL_SOL",
+                "details": "Mélange couche superficielle 0-15cm",
+                "params": {
+                    "Profondeur": "12 cm",
+                    "RPM": "540"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_09_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J9. Sauvegarde Cloud. Préparation J10"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 10,
+        "date": "2024-03-10",
+        "phase": "PHASE 2: RESTRUCTURATION ORGANIQUE",
+        "metrics": {
+            "ph": 6.99,
+            "ec": 2.52,
+            "mo": 2.39,
+            "score": 77,
+            "micro_org": 6.9,
+            "temp_sol": 23.1,
+            "humidite": 31.2
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_10_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_10_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "08:30:00",
+                "id": "CMD_10_003",
+                "action": "APPORT_COMPOST",
+                "category": "FERTILISATION",
+                "details": "Incorporation matière organique enrichie",
+                "params": {
+                    "Type": "Certifié A+",
+                    "Qté": "2 T/ha"
+                }
+            },
+            {
+                "time": "16:00:00",
+                "id": "CMD_10_004",
+                "action": "ROTOVATOR_PRECISION",
+                "category": "TRAVAIL_SOL",
+                "details": "Mélange couche superficielle 0-15cm",
+                "params": {
+                    "Profondeur": "12 cm",
+                    "RPM": "540"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_10_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J10. Sauvegarde Cloud. Préparation J11"
+            }
+        ],
+        "alerts": [
+            {
+                "level": "WARNING",
+                "message": "Dérive légère pH détectée secteur Nord",
+                "time": "11:45:00"
+            }
+        ]
+    },
+    {
+        "day": 11,
+        "date": "2024-03-11",
+        "phase": "PHASE 2: RESTRUCTURATION ORGANIQUE",
+        "metrics": {
+            "ph": 6.86,
+            "ec": 2.51,
+            "mo": 2.47,
+            "score": 81,
+            "micro_org": 7.6,
+            "temp_sol": 23.8,
+            "humidite": 28.4
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_11_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_11_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "08:30:00",
+                "id": "CMD_11_003",
+                "action": "APPORT_COMPOST",
+                "category": "FERTILISATION",
+                "details": "Incorporation matière organique enrichie",
+                "params": {
+                    "Type": "Certifié A+",
+                    "Qté": "2 T/ha"
+                }
+            },
+            {
+                "time": "16:00:00",
+                "id": "CMD_11_004",
+                "action": "ROTOVATOR_PRECISION",
+                "category": "TRAVAIL_SOL",
+                "details": "Mélange couche superficielle 0-15cm",
+                "params": {
+                    "Profondeur": "12 cm",
+                    "RPM": "540"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_11_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J11. Sauvegarde Cloud. Préparation J12"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 12,
+        "date": "2024-03-12",
+        "phase": "PHASE 2: RESTRUCTURATION ORGANIQUE",
+        "metrics": {
+            "ph": 6.85,
+            "ec": 2.41,
+            "mo": 2.57,
+            "score": 83,
+            "micro_org": 8.0,
+            "temp_sol": 22.2,
+            "humidite": 28.3
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_12_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_12_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "08:30:00",
+                "id": "CMD_12_003",
+                "action": "APPORT_COMPOST",
+                "category": "FERTILISATION",
+                "details": "Incorporation matière organique enrichie",
+                "params": {
+                    "Type": "Certifié A+",
+                    "Qté": "2 T/ha"
+                }
+            },
+            {
+                "time": "16:00:00",
+                "id": "CMD_12_004",
+                "action": "ROTOVATOR_PRECISION",
+                "category": "TRAVAIL_SOL",
+                "details": "Mélange couche superficielle 0-15cm",
+                "params": {
+                    "Profondeur": "12 cm",
+                    "RPM": "540"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_12_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J12. Sauvegarde Cloud. Préparation J13"
+            }
+        ],
+        "alerts": [
+            {
+                "level": "WARNING",
+                "message": "Dérive légère pH détectée secteur Nord",
+                "time": "11:45:00"
+            }
+        ]
+    },
+    {
+        "day": 13,
+        "date": "2024-03-13",
+        "phase": "PHASE 2: RESTRUCTURATION ORGANIQUE",
+        "metrics": {
+            "ph": 6.78,
+            "ec": 2.35,
+            "mo": 2.58,
+            "score": 86,
+            "micro_org": 8.4,
+            "temp_sol": 21.8,
+            "humidite": 30.7
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_13_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_13_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "08:30:00",
+                "id": "CMD_13_003",
+                "action": "APPORT_COMPOST",
+                "category": "FERTILISATION",
+                "details": "Incorporation matière organique enrichie",
+                "params": {
+                    "Type": "Certifié A+",
+                    "Qté": "2 T/ha"
+                }
+            },
+            {
+                "time": "16:00:00",
+                "id": "CMD_13_004",
+                "action": "ROTOVATOR_PRECISION",
+                "category": "TRAVAIL_SOL",
+                "details": "Mélange couche superficielle 0-15cm",
+                "params": {
+                    "Profondeur": "12 cm",
+                    "RPM": "540"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_13_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J13. Sauvegarde Cloud. Préparation J14"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 14,
+        "date": "2024-03-14",
+        "phase": "PHASE 2: RESTRUCTURATION ORGANIQUE",
+        "metrics": {
+            "ph": 6.76,
+            "ec": 2.37,
+            "mo": 2.69,
+            "score": 85,
+            "micro_org": 8.4,
+            "temp_sol": 19.9,
+            "humidite": 29.6
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_14_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_14_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "08:30:00",
+                "id": "CMD_14_003",
+                "action": "APPORT_COMPOST",
+                "category": "FERTILISATION",
+                "details": "Incorporation matière organique enrichie",
+                "params": {
+                    "Type": "Certifié A+",
+                    "Qté": "2 T/ha"
+                }
+            },
+            {
+                "time": "16:00:00",
+                "id": "CMD_14_004",
+                "action": "ROTOVATOR_PRECISION",
+                "category": "TRAVAIL_SOL",
+                "details": "Mélange couche superficielle 0-15cm",
+                "params": {
+                    "Profondeur": "12 cm",
+                    "RPM": "540"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_14_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J14. Sauvegarde Cloud. Préparation J15"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 15,
+        "date": "2024-03-15",
+        "phase": "PHASE 2: RESTRUCTURATION ORGANIQUE",
+        "metrics": {
+            "ph": 6.72,
+            "ec": 2.32,
+            "mo": 2.7,
+            "score": 90,
+            "micro_org": 8.9,
+            "temp_sol": 21.4,
+            "humidite": 29.6
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_15_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_15_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "08:30:00",
+                "id": "CMD_15_003",
+                "action": "APPORT_COMPOST",
+                "category": "FERTILISATION",
+                "details": "Incorporation matière organique enrichie",
+                "params": {
+                    "Type": "Certifié A+",
+                    "Qté": "2 T/ha"
+                }
+            },
+            {
+                "time": "16:00:00",
+                "id": "CMD_15_004",
+                "action": "ROTOVATOR_PRECISION",
+                "category": "TRAVAIL_SOL",
+                "details": "Mélange couche superficielle 0-15cm",
+                "params": {
+                    "Profondeur": "12 cm",
+                    "RPM": "540"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_15_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J15. Sauvegarde Cloud. Préparation J16"
+            }
+        ],
+        "alerts": [
+            {
+                "level": "WARNING",
+                "message": "Dérive légère pH détectée secteur Nord",
+                "time": "11:45:00"
+            }
+        ]
+    },
+    {
+        "day": 16,
+        "date": "2024-03-16",
+        "phase": "PHASE 2: RESTRUCTURATION ORGANIQUE",
+        "metrics": {
+            "ph": 6.66,
+            "ec": 2.2,
+            "mo": 2.78,
+            "score": 89,
+            "micro_org": 8.9,
+            "temp_sol": 22.7,
+            "humidite": 28.2
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_16_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_16_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "08:30:00",
+                "id": "CMD_16_003",
+                "action": "APPORT_COMPOST",
+                "category": "FERTILISATION",
+                "details": "Incorporation matière organique enrichie",
+                "params": {
+                    "Type": "Certifié A+",
+                    "Qté": "2 T/ha"
+                }
+            },
+            {
+                "time": "16:00:00",
+                "id": "CMD_16_004",
+                "action": "ROTOVATOR_PRECISION",
+                "category": "TRAVAIL_SOL",
+                "details": "Mélange couche superficielle 0-15cm",
+                "params": {
+                    "Profondeur": "12 cm",
+                    "RPM": "540"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_16_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J16. Sauvegarde Cloud. Préparation J17"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 17,
+        "date": "2024-03-17",
+        "phase": "PHASE 2: RESTRUCTURATION ORGANIQUE",
+        "metrics": {
+            "ph": 6.61,
+            "ec": 2.26,
+            "mo": 2.79,
+            "score": 90,
+            "micro_org": 9.0,
+            "temp_sol": 20.8,
+            "humidite": 29.9
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_17_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_17_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "08:30:00",
+                "id": "CMD_17_003",
+                "action": "APPORT_COMPOST",
+                "category": "FERTILISATION",
+                "details": "Incorporation matière organique enrichie",
+                "params": {
+                    "Type": "Certifié A+",
+                    "Qté": "2 T/ha"
+                }
+            },
+            {
+                "time": "16:00:00",
+                "id": "CMD_17_004",
+                "action": "ROTOVATOR_PRECISION",
+                "category": "TRAVAIL_SOL",
+                "details": "Mélange couche superficielle 0-15cm",
+                "params": {
+                    "Profondeur": "12 cm",
+                    "RPM": "540"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_17_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J17. Sauvegarde Cloud. Préparation J18"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 18,
+        "date": "2024-03-18",
+        "phase": "PHASE 3: ACTIVATION BIOLOGIQUE",
+        "metrics": {
+            "ph": 6.63,
+            "ec": 2.12,
+            "mo": 2.85,
+            "score": 91,
+            "micro_org": 9.6,
+            "temp_sol": 22.8,
+            "humidite": 30.5
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_18_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_18_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "10:00:00",
+                "id": "CMD_18_003",
+                "action": "INJECTION_THE_COMPOST",
+                "category": "BIOLOGIE",
+                "details": "Inoculation micro-organismes bénéfiques",
+                "params": {
+                    "Concentration": "10^6 UFC/ml",
+                    "Débit": "500 L/h"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_18_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J18. Sauvegarde Cloud. Préparation J19"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 19,
+        "date": "2024-03-19",
+        "phase": "PHASE 3: ACTIVATION BIOLOGIQUE",
+        "metrics": {
+            "ph": 6.62,
+            "ec": 2.19,
+            "mo": 2.91,
+            "score": 93,
+            "micro_org": 9.6,
+            "temp_sol": 20.5,
+            "humidite": 30.6
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_19_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_19_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "10:00:00",
+                "id": "CMD_19_003",
+                "action": "INJECTION_THE_COMPOST",
+                "category": "BIOLOGIE",
+                "details": "Inoculation micro-organismes bénéfiques",
+                "params": {
+                    "Concentration": "10^6 UFC/ml",
+                    "Débit": "500 L/h"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_19_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J19. Sauvegarde Cloud. Préparation J20"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 20,
+        "date": "2024-03-20",
+        "phase": "PHASE 3: ACTIVATION BIOLOGIQUE",
+        "metrics": {
+            "ph": 6.62,
+            "ec": 2.27,
+            "mo": 2.87,
+            "score": 96,
+            "micro_org": 9.4,
+            "temp_sol": 19.8,
+            "humidite": 30.5
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_20_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_20_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "10:00:00",
+                "id": "CMD_20_003",
+                "action": "INJECTION_THE_COMPOST",
+                "category": "BIOLOGIE",
+                "details": "Inoculation micro-organismes bénéfiques",
+                "params": {
+                    "Concentration": "10^6 UFC/ml",
+                    "Débit": "500 L/h"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_20_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J20. Sauvegarde Cloud. Préparation J21"
+            }
+        ],
+        "alerts": [
+            {
+                "level": "WARNING",
+                "message": "Dérive légère pH détectée secteur Nord",
+                "time": "11:45:00"
+            }
+        ]
+    },
+    {
+        "day": 21,
+        "date": "2024-03-21",
+        "phase": "PHASE 3: ACTIVATION BIOLOGIQUE",
+        "metrics": {
+            "ph": 6.59,
+            "ec": 2.21,
+            "mo": 2.93,
+            "score": 95,
+            "micro_org": 9.7,
+            "temp_sol": 19.8,
+            "humidite": 28.6
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_21_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_21_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "10:00:00",
+                "id": "CMD_21_003",
+                "action": "INJECTION_THE_COMPOST",
+                "category": "BIOLOGIE",
+                "details": "Inoculation micro-organismes bénéfiques",
+                "params": {
+                    "Concentration": "10^6 UFC/ml",
+                    "Débit": "500 L/h"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_21_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J21. Sauvegarde Cloud. Préparation J22"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 22,
+        "date": "2024-03-22",
+        "phase": "PHASE 3: ACTIVATION BIOLOGIQUE",
+        "metrics": {
+            "ph": 6.52,
+            "ec": 2.17,
+            "mo": 2.97,
+            "score": 98,
+            "micro_org": 9.6,
+            "temp_sol": 18.1,
+            "humidite": 30.3
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_22_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_22_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "10:00:00",
+                "id": "CMD_22_003",
+                "action": "INJECTION_THE_COMPOST",
+                "category": "BIOLOGIE",
+                "details": "Inoculation micro-organismes bénéfiques",
+                "params": {
+                    "Concentration": "10^6 UFC/ml",
+                    "Débit": "500 L/h"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_22_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J22. Sauvegarde Cloud. Préparation J23"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 23,
+        "date": "2024-03-23",
+        "phase": "PHASE 3: ACTIVATION BIOLOGIQUE",
+        "metrics": {
+            "ph": 6.55,
+            "ec": 2.18,
+            "mo": 2.96,
+            "score": 98,
+            "micro_org": 9.9,
+            "temp_sol": 23.4,
+            "humidite": 31.7
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_23_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_23_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "10:00:00",
+                "id": "CMD_23_003",
+                "action": "INJECTION_THE_COMPOST",
+                "category": "BIOLOGIE",
+                "details": "Inoculation micro-organismes bénéfiques",
+                "params": {
+                    "Concentration": "10^6 UFC/ml",
+                    "Débit": "500 L/h"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_23_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J23. Sauvegarde Cloud. Préparation J24"
+            }
+        ],
+        "alerts": [
+            {
+                "level": "WARNING",
+                "message": "Dérive légère pH détectée secteur Nord",
+                "time": "11:45:00"
+            }
+        ]
+    },
+    {
+        "day": 24,
+        "date": "2024-03-24",
+        "phase": "PHASE 3: ACTIVATION BIOLOGIQUE",
+        "metrics": {
+            "ph": 6.51,
+            "ec": 2.05,
+            "mo": 3.01,
+            "score": 97,
+            "micro_org": 9.9,
+            "temp_sol": 23.9,
+            "humidite": 30.7
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_24_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_24_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "10:00:00",
+                "id": "CMD_24_003",
+                "action": "INJECTION_THE_COMPOST",
+                "category": "BIOLOGIE",
+                "details": "Inoculation micro-organismes bénéfiques",
+                "params": {
+                    "Concentration": "10^6 UFC/ml",
+                    "Débit": "500 L/h"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_24_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J24. Sauvegarde Cloud. Préparation J25"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 25,
+        "date": "2024-03-25",
+        "phase": "PHASE 3: ACTIVATION BIOLOGIQUE",
+        "metrics": {
+            "ph": 6.51,
+            "ec": 2.1,
+            "mo": 3.02,
+            "score": 99,
+            "micro_org": 9.7,
+            "temp_sol": 23.6,
+            "humidite": 31.0
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_25_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_25_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "10:00:00",
+                "id": "CMD_25_003",
+                "action": "INJECTION_THE_COMPOST",
+                "category": "BIOLOGIE",
+                "details": "Inoculation micro-organismes bénéfiques",
+                "params": {
+                    "Concentration": "10^6 UFC/ml",
+                    "Débit": "500 L/h"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_25_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J25. Sauvegarde Cloud. Préparation J26"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 26,
+        "date": "2024-03-26",
+        "phase": "PHASE 3: ACTIVATION BIOLOGIQUE",
+        "metrics": {
+            "ph": 6.52,
+            "ec": 2.11,
+            "mo": 2.99,
+            "score": 98,
+            "micro_org": 10.2,
+            "temp_sol": 18.1,
+            "humidite": 29.6
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_26_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_26_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "10:00:00",
+                "id": "CMD_26_003",
+                "action": "INJECTION_THE_COMPOST",
+                "category": "BIOLOGIE",
+                "details": "Inoculation micro-organismes bénéfiques",
+                "params": {
+                    "Concentration": "10^6 UFC/ml",
+                    "Débit": "500 L/h"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_26_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J26. Sauvegarde Cloud. Préparation J27"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 27,
+        "date": "2024-03-27",
+        "phase": "PHASE 3: ACTIVATION BIOLOGIQUE",
+        "metrics": {
+            "ph": 6.51,
+            "ec": 2.06,
+            "mo": 3.0,
+            "score": 97,
+            "micro_org": 10.4,
+            "temp_sol": 22.1,
+            "humidite": 31.8
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_27_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_27_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "10:00:00",
+                "id": "CMD_27_003",
+                "action": "INJECTION_THE_COMPOST",
+                "category": "BIOLOGIE",
+                "details": "Inoculation micro-organismes bénéfiques",
+                "params": {
+                    "Concentration": "10^6 UFC/ml",
+                    "Débit": "500 L/h"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_27_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J27. Sauvegarde Cloud. Préparation J28"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 28,
+        "date": "2024-03-28",
+        "phase": "PHASE 4: OPTIMISATION & STABILISATION",
+        "metrics": {
+            "ph": 6.52,
+            "ec": 2.18,
+            "mo": 3.04,
+            "score": 100,
+            "micro_org": 10.1,
+            "temp_sol": 19.7,
+            "humidite": 31.9
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_28_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_28_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "09:00:00",
+                "id": "CMD_28_003",
+                "action": "CONTROLE_QUALITE_FINAL",
+                "category": "AUDIT",
+                "details": "Prélèvements multi-points pour validation finale",
+                "params": {
+                    "Points": "50",
+                    "Méthode": "ISO-112"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_28_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J28. Sauvegarde Cloud. Préparation J29"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 29,
+        "date": "2024-03-29",
+        "phase": "PHASE 4: OPTIMISATION & STABILISATION",
+        "metrics": {
+            "ph": 6.47,
+            "ec": 2.03,
+            "mo": 3.01,
+            "score": 97,
+            "micro_org": 10.1,
+            "temp_sol": 20.4,
+            "humidite": 30.1
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_29_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_29_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "09:00:00",
+                "id": "CMD_29_003",
+                "action": "CONTROLE_QUALITE_FINAL",
+                "category": "AUDIT",
+                "details": "Prélèvements multi-points pour validation finale",
+                "params": {
+                    "Points": "50",
+                    "Méthode": "ISO-112"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_29_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J29. Sauvegarde Cloud. Préparation J30"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 30,
+        "date": "2024-03-30",
+        "phase": "PHASE 4: OPTIMISATION & STABILISATION",
+        "metrics": {
+            "ph": 6.47,
+            "ec": 2.18,
+            "mo": 3.02,
+            "score": 97,
+            "micro_org": 9.8,
+            "temp_sol": 23.3,
+            "humidite": 29.7
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_30_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_30_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "09:00:00",
+                "id": "CMD_30_003",
+                "action": "CONTROLE_QUALITE_FINAL",
+                "category": "AUDIT",
+                "details": "Prélèvements multi-points pour validation finale",
+                "params": {
+                    "Points": "50",
+                    "Méthode": "ISO-112"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_30_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J30. Sauvegarde Cloud. Préparation J31"
+            }
+        ],
+        "alerts": []
+    },
+    {
+        "day": 31,
+        "date": "2024-03-31",
+        "phase": "PHASE 4: OPTIMISATION & STABILISATION",
+        "metrics": {
+            "ph": 6.55,
+            "ec": 2.14,
+            "mo": 3.04,
+            "score": 100,
+            "micro_org": 10.4,
+            "temp_sol": 21.3,
+            "humidite": 28.7
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_31_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_31_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "09:00:00",
+                "id": "CMD_31_003",
+                "action": "CONTROLE_QUALITE_FINAL",
+                "category": "AUDIT",
+                "details": "Prélèvements multi-points pour validation finale",
+                "params": {
+                    "Points": "50",
+                    "Méthode": "ISO-112"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_31_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J31. Sauvegarde Cloud. Préparation J32"
+            }
+        ],
+        "alerts": [
+            {
+                "level": "WARNING",
+                "message": "Dérive légère pH détectée secteur Nord",
+                "time": "11:45:00"
+            }
+        ]
+    },
+    {
+        "day": 32,
+        "date": "2024-04-01",
+        "phase": "PHASE 4: OPTIMISATION & STABILISATION",
+        "metrics": {
+            "ph": 6.47,
+            "ec": 2.02,
+            "mo": 3.01,
+            "score": 99,
+            "micro_org": 10.5,
+            "temp_sol": 21.0,
+            "humidite": 29.5
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_32_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_32_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "09:00:00",
+                "id": "CMD_32_003",
+                "action": "CONTROLE_QUALITE_FINAL",
+                "category": "AUDIT",
+                "details": "Prélèvements multi-points pour validation finale",
+                "params": {
+                    "Points": "50",
+                    "Méthode": "ISO-112"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_32_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J32. Sauvegarde Cloud. Préparation J33"
+            }
+        ],
+        "alerts": [
+            {
+                "level": "WARNING",
+                "message": "Dérive légère pH détectée secteur Nord",
+                "time": "11:45:00"
+            }
+        ]
+    },
+    {
+        "day": 33,
+        "date": "2024-04-02",
+        "phase": "PHASE 4: OPTIMISATION & STABILISATION",
+        "metrics": {
+            "ph": 6.5,
+            "ec": 2.1,
+            "mo": 3.0,
+            "score": 99,
+            "micro_org": 10.0,
+            "temp_sol": 22.4,
+            "humidite": 30.4
+        },
+        "commands": [
+            {
+                "time": "06:00:00",
+                "id": "CMD_33_001",
+                "action": "SYSTEM_WAKEUP",
+                "category": "MAINTENANCE",
+                "details": "Initialisation des systèmes et calibration capteurs"
+            },
+            {
+                "time": "07:30:00",
+                "id": "CMD_33_002",
+                "action": "ANALYSE_SOL_NOCTURNE",
+                "category": "ANALYSE",
+                "details": "Traitement données 20 capteurs. Modélisation J+{day}"
+            },
+            {
+                "time": "09:00:00",
+                "id": "CMD_33_003",
+                "action": "CONTROLE_QUALITE_FINAL",
+                "category": "AUDIT",
+                "details": "Prélèvements multi-points pour validation finale",
+                "params": {
+                    "Points": "50",
+                    "Méthode": "ISO-112"
+                }
+            },
+            {
+                "time": "19:00:00",
+                "id": "CMD_33_099",
+                "action": "GENERATION_RAPPORT",
+                "category": "ADMIN",
+                "details": "Clôture J33. Sauvegarde Cloud. Préparation J34"
+            }
+        ],
+        "alerts": [
+            {
+                "level": "WARNING",
+                "message": "Dérive légère pH détectée secteur Nord",
+                "time": "11:45:00"
+            }
+        ]
+    }
+]

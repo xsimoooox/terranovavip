@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terranova — Plateforme Agro-Spatiale</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive-map.css">
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="../lang-data.js"></script>
+    <script src="../lang-system.js"></script>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div style="flex: 1;"></div> <!-- Spacer to push remaining items to bottom -->
+
+        <!-- Simplified Sidebar: Guide remains as a refined link -->
+        <div class="sidebar-item" id="open-guide" title="Guide Terranova Intelligence">
+            <span style="font-size: 1rem; font-weight: 700; color: #4ade80; font-family: 'Orbitron';" data-i18n="map_info_label">INFO</span>
+            <span style="font-size: 0.8rem; font-weight: 600;" data-i18n="map_guide_label">Guide</span>
+        </div>
+
+        <div class="sidebar-divider"></div>
+
+        <!-- Return to Earth (Bottom) -->
+        <div class="sidebar-item" id="return-to-earth" title="Retour à la Terre 3D"
+            onclick="window.location.href='../index.html'">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" style="color: #4ade80; filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.4));">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                <path d="M2 12h20"></path>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+        </div>
+    </div>
+
+    <!-- RELOCATED CONTROLS (Left side) -->
+    <div class="map-extra-controls">
+        <button id="my-location-custom" title="Ma Position">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="3"></circle>
+                <line x1="12" y1="1" x2="12" y2="4"></line>
+                <line x1="12" y1="20" x2="12" y2="23"></line>
+                <line x1="1" y1="12" x2="4" y2="12"></line>
+                <line x1="20" y1="12" x2="23" y2="12"></line>
+            </svg>
+        </button>
+        <button id="camera-focus" title="Zoom & Capturer l'Analyse">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+            </svg>
+        </button>
+        <button id="draw-zone-custom" title="Dessiner une Zone Libre">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+            </svg>
+        </button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!-- DETAILED GUIDE OVERLAY -->
+    <div id="guide-overlay" class="guide-overlay hidden">
+        <div class="guide-modal">
+            <button class="close-guide">×</button>
+            <div class="guide-header">
+                <span class="gaia-brand">TERRA</span><span class="eye-brand">NOVA</span>
+                <h2>INTELLIGENCE SUPPORT SYSTEM</h2>
+            </div>
+            <div class="guide-body">
+                <section>
+                    <h3>🛰️ Surveillance Spatiale</h3>
+                    <p>Terranova exploite les constellations de satellites Sentinel-2 et Landsat-8 pour une vision
+                        multi-spectrale haute précision. Nous analysons la réflectance du sol en temps réel.</p>
+                </section>
+                <section>
+                    <h3>🧠 Moteur HARMONIA</h3>
+                    <p>Notre algorithme propriétaire transforme les indices spectraux (NDVI, NDWI) en décisions
+                        agronomiques exploitables. Il détecte le stress hydrique et les carences minérales avant qu'ils
+                        ne soient visibles à l'œil nu.</p>
+                </section>
+                <section>
+                    <h3>🌱 Agriculture de Régénération</h3>
+                    <p>Plus qu'un outil de suivi, Terranova vous accompagne vers le "Sol Parfait". Nous mesurons la
+                        séquestration de carbone et le potentiel de régénération biologique de vos parcelles.</p>
+                </section>
+                <div class="guide-footer">
+                    <p><em>Système Décisionnel v4.2-SUP | Module HARMONIA</em></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analysis Start Button Overlay (appears after zone selection) -->
+    <div id="analysis-overlay" class="analysis-overlay hidden">
+        <div class="analysis-card" style="max-width: 800px;">
+            <h2 class="analysis-title" data-i18n="analysis_zone_selected">Zone Sélectionnée</h2>
+            <div class="analysis-area" id="analysis-area-display">0 m²</div>
+
+            <div class="culture-selection-section">
+                <h3 class="culture-question" data-i18n="analysis_culture_question">Êtes-vous prêts à accéder à l’excellence agricole de votre patrimoine marocain ?</h3>
+                <div class="crop-grid">
+                    <div class="crop-item modern-card" data-crop="argan">
+                        <div class="crop-image-container">
+                            <img src="../images/arganier.png" alt="Arganier" class="crop-img">
+                        </div>
+                        <div class="crop-name" data-i18n="crop_arganier">Arganier</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="start-analysis-btn hidden" id="start-analysis-btn" style="margin-top: 30px;">
+                <span data-i18n="analysis_start_btn">Commencer l'Analyse</span>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Loading Animation Overlay -->
+    <div id="loading-overlay" class="analysis-overlay hidden">
+        <div class="loading-container">
+            <div class="loading-circle"></div>
+            <p class="loading-text" data-i18n="analysis_loading_text">Analyse des données du terrain via satellites et intelligence artificielle en cours…</p>
+        </div>
+    </div>
+
+    <!-- Stylized line at bottom -->
+    <div class="bottom-styleline"></div>
+
+    <div class="bottom-panel">
+        <div class="brand" data-i18n="nav_brand">Terranova Intelligence</div>
+        <div class="date-controls">
+            <button id="prev-month" class="nav-btn">&lt;</button>
+            <div class="timeline-container">
+                <span id="date-display">December 2025</span>
+                <input type="range" id="time-slider" min="0" max="60" value="60">
+            </div>
+            <button id="next-month" class="nav-btn">&gt;</button>
+        </div>
+        <div id="status-msg" class="status-text">Ready.</div>
+    </div>
+
+
+    <!-- MAP ELEMENT - MUST BE OUTSIDE DASHBOARD -->
+    <div id="map"></div>
+
+    <!-- SECURITY ACCESS OVERLAY (re-used from 3D Earth) -->
+    <div id="security-overlay" class="security-overlay">
+        <div class="security-card" id="security-card">
+            <!-- Language Switcher -->
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="fr">🇫🇷 FR</button>
+                <button class="lang-btn" data-lang="ar">🇲🇦 AR</button>
+            </div>
+
+            <h2 id="sec-title" data-i18n="sec_title">Accès sécurisé à la carte</h2>
+            <div class="security-field">
+                <label for="map-email" id="sec-email-label" data-i18n="sec_email_label">📧 Email</label>
+                <input type="email" id="map-email" data-i18n-placeholder="sec_email_placeholder" placeholder="votre@email.com">
+            </div>
+            <div class="security-field">
+                <label for="map-access-code" id="sec-code-label" data-i18n="sec_code_label">🔑 Code d'accès</label>
+                <div style="position: relative; display: flex; align-items: center;">
+                    <input type="password" id="map-access-code" data-i18n-placeholder="sec_code_placeholder" placeholder="••••••••" style="width: 100%; padding-right: 120px; padding-bottom: 25px;">
+                    <a href="#" style="position: absolute; right: 12px; bottom: 8px; font-size: 9px; color: #0F6B5B; text-decoration: none; font-weight: 600; background: rgba(255,255,255,0.7); padding: 1px 3px; border-radius: 3px;" data-i18n="sec_forgot_pwd">Mot de passe oublié ?</a>
+                </div>
+            </div>
+            <div class="security-field" style="display: flex; align-items: center; gap: 10px; margin-top: 15px; background: rgba(15, 107, 91, 0.05); padding: 12px; border-radius: 12px; border: 1px solid rgba(15, 107, 91, 0.1);">
+                <input type="checkbox" id="confirm-dataUsage" style="width: 20px; height: 20px; cursor: pointer; accent-color: #0F6B5B;">
+                <label for="confirm-dataUsage" style="font-size: 13px; font-weight: 500; cursor: pointer; color: #444; line-height: 1.4; flex: 1;" data-i18n="sec_confirmation_text">
+                    Je confirme l’utilisation de ma localisation du terroir et de mes informations personnelles
+                </label>
+            </div>
+
+            <button class="access-btn disabled" id="map-access-btn" disabled style="opacity: 0.5; cursor: not-allowed; transition: all 0.3s ease;">
+                <span id="sec-btn-text" data-i18n="sec_btn_text">Accéder à la carte</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Masque l'overlay de sécurité une fois l'accès accordé
+        const accessBtn = document.getElementById('map-access-btn');
+        const confirmCheck = document.getElementById('confirm-dataUsage');
+
+        confirmCheck?.addEventListener('change', function() {
+            if (this.checked) {
+                accessBtn.disabled = false;
+                accessBtn.style.opacity = '1';
+                accessBtn.style.cursor = 'pointer';
+                accessBtn.classList.remove('disabled');
+            } else {
+                accessBtn.disabled = true;
+                accessBtn.style.opacity = '0.5';
+                accessBtn.style.cursor = 'not-allowed';
+                accessBtn.classList.add('disabled');
+            }
+        });
+
+        accessBtn?.addEventListener('click', function () {
+            if (confirmCheck.checked) {
+                const overlay = document.getElementById('security-overlay');
+                if (overlay) {
+                    overlay.classList.add('hidden');
+                }
+            }
+        });
+    </script>
+<script src="../lang-system.js"></script>
+</body>
+
+</html>

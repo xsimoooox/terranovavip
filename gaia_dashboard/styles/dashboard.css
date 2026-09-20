@@ -1,0 +1,1036 @@
+/* ============================================
+   GAIA EYE DASHBOARD - STYLING
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #F6F4F0 0%, #FFFFFF 100%);
+    color: #000000;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/* ============================================
+   DASHBOARD CONTAINER
+   ============================================ */
+
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ============================================
+   SIDEBAR NAVIGATION
+   ============================================ */
+
+.sidebar-nav {
+    width: 220px;
+    background: rgba(255, 255, 255, 0.95);
+    border-right: 1px solid rgba(78, 222, 128, 0.3);
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+    box-shadow: 4px 0 30px rgba(0,0,0,0.05);
+}
+
+.sidebar-header {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(78, 222, 128, 0.3);
+}
+
+.gaia-text {
+    color: #0F6B5B;
+}
+
+.eye-text {
+    color: #2563eb;
+}
+
+.nav-item {
+    padding: 12px 15px;
+    background: rgba(241, 245, 249, 1);
+    border: 1px solid rgba(100, 116, 139, 0.2);
+    border-radius: 8px;
+    color: #000000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-item:hover {
+    background: rgba(78, 222, 128, 0.1);
+    border-color: #0F6B5B;
+    color: #0F6B5B;
+    transform: translateX(5px);
+}
+
+.nav-item.active {
+    background: linear-gradient(135deg, rgba(78, 222, 128, 0.15), rgba(96, 165, 250, 0.1));
+    border-color: #0F6B5B;
+    color: #0F6B5B;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.nav-divider {
+    height: 1px;
+    background: rgba(100, 116, 139, 0.15);
+    margin: 10px 0;
+}
+
+.nav-item.back-btn {
+    margin-top: auto;
+    background: rgba(96, 165, 250, 0.05);
+    border-color: rgba(96, 165, 250, 0.2);
+    color: #2563eb;
+}
+
+.nav-item.back-btn:hover {
+    background: rgba(96, 165, 250, 0.15);
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+/* Main Content adjusted for sidebar */
+.main-content {
+    flex: 1;
+    padding: 40px;
+    background: #F8F9FA;
+    margin-left: 220px;
+}
+
+.main-content::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    background: #0F6B5B;
+    border-radius: 4px;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+    background: #1a9e87;
+}
+
+/* ============================================
+   SECTIONS
+   ============================================ */
+
+.section {
+    display: block;
+    margin-bottom: 80px;
+    animation: fadeIn 0.4s ease-in;
+    padding-top: 20px;
+}
+
+.section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
+    color: #0F6B5B;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    color: #1a4a75;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(15, 107, 91, 0.2);
+}
+
+h3 {
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+h4 {
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+
+.card {
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    border-color: #0F6B5B;
+    box-shadow: 0 8px 30px rgba(15, 107, 91, 0.08);
+}
+
+.ref-card {
+    background: linear-gradient(135deg, rgba(78, 222, 128, 0.1), rgba(96, 165, 250, 0.1));
+    border: 2px solid rgba(78, 222, 128, 0.3);
+}
+
+.ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.ref-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.ref-label {
+    font-size: 12px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ref-value {
+    font-size: 16px;
+    color: #1e293b;
+    font-weight: 600;
+}
+
+/* ============================================
+   DATA GRIDS & METRICS
+   ============================================ */
+
+.data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.metric {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.metric-label {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.metric-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0F6B5B;
+}
+
+.metric-value.alert {
+    color: #f87171;
+}
+
+.metric-value.warning {
+    color: #fbbf24;
+}
+
+.metric-value.success {
+    color: #0a6644;
+}
+
+.metric-note {
+    font-size: 11px;
+    color: #64748b;
+    font-style: italic;
+}
+
+/* ============================================
+   TABLES
+   ============================================ */
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.data-table thead {
+    background: #f1f5f9;
+}
+
+.data-table th {
+    padding: 12px;
+    text-align: left;
+    font-size: 13px;
+    color: #0F6B5B;
+    border-bottom: 2px solid #cbd5e1;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.data-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 14px;
+    color: #334155;
+}
+
+.data-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.data-table td.alert {
+    color: #dc2626;
+    font-weight: 600;
+}
+
+.data-table td.warning {
+    color: #ca8a04;
+    font-weight: 600;
+}
+
+.data-table td.success {
+    color: #0F6B5B;
+    font-weight: 600;
+}
+
+.data-table.financial .category-header td {
+    background: rgba(96, 165, 250, 0.1);
+    font-weight: 600;
+    color: #1a4a75;
+    padding-top: 15px;
+}
+
+.data-table.financial .total-row td {
+    background: rgba(78, 222, 128, 0.15);
+    font-weight: 700;
+    color: #0a5e3f;
+    border-top: 2px solid rgba(78, 222, 128, 0.5);
+    padding-top: 15px;
+    font-size: 16px;
+}
+
+.data-table tr.highlight {
+    background: rgba(78, 222, 128, 0.1);
+}
+
+/* ============================================
+   ALERT BOXES
+   ============================================ */
+
+.alert-box {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 14px;
+    border-left: 4px solid;
+}
+
+.alert-box.warning {
+    background: rgba(251, 191, 36, 0.12);
+    border-color: #d97706;
+    color: #7c4d00;
+}
+
+.alert-box.info {
+    background: rgba(96, 165, 250, 0.12);
+    border-color: #3b82f6;
+    color: #1e3a5f;
+}
+
+.alert-box.success {
+    background: rgba(78, 222, 128, 0.12);
+    border-color: #0F6B5B;
+    color: #0a4a3d;
+}
+
+/* ============================================
+   SOIL PROFILE
+   ============================================ */
+
+.soil-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.horizon {
+    background: rgba(15, 23, 42, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #60a5fa;
+}
+
+.horizon h4 {
+    color: #60a5fa;
+    margin-bottom: 12px;
+}
+
+.horizon ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.horizon li {
+    padding: 6px 0;
+    font-size: 14px;
+    color: #cbd5e1;
+}
+
+.horizon li strong {
+    font-weight: 600;
+}
+
+.horizon li strong.alert {
+    color: #f87171;
+}
+
+.horizon li strong.warning {
+    color: #fbbf24;
+}
+
+/* ============================================
+   ZONE CARDS
+   ============================================ */
+
+.zone-card {
+    background: rgba(15, 23, 42, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+    border-left: 4px solid;
+}
+
+.zone-card.critical {
+    border-color: #f87171;
+}
+
+.zone-card.medium {
+    border-color: #fbbf24;
+}
+
+.zone-card.good {
+    border-color: #4ade80;
+}
+
+.zone-card h4 {
+    margin-bottom: 15px;
+}
+
+.zone-card ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.zone-card li {
+    padding: 5px 0;
+    font-size: 14px;
+    color: #cbd5e1;
+}
+
+.cost-roi {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    border-top: 1px solid rgba(71, 85, 105, 0.3);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.cost-roi .success {
+    color: #0a6644;
+}
+
+/* ============================================
+   IRRIGATION SUMMARY
+   ============================================ */
+
+.irrigation-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+}
+
+/* ============================================
+   SCENARIO COMPARISON
+   ============================================ */
+
+.scenario-comparison {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.scenario-card {
+    background: rgba(15, 23, 42, 0.7);
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid;
+}
+
+.scenario-card.base {
+    border-color: #64748b;
+}
+
+.scenario-card.optimized {
+    border-color: #4ade80;
+    box-shadow: 0 0 30px rgba(78, 222, 128, 0.2);
+}
+
+.scenario-card h4 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.scenario-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: rgba(30, 41, 59, 0.5);
+    border-radius: 6px;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.stat-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: #e0e6ed;
+}
+
+.stat-value.success {
+    color: #0a6644;
+}
+
+.stat-value.alert {
+    color: #f87171;
+}
+
+.gain-indicator {
+    margin-top: 25px;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(78, 222, 128, 0.2), rgba(96, 165, 250, 0.2));
+    border-radius: 12px;
+    border: 2px solid #4ade80;
+}
+
+.gain-label {
+    font-size: 16px;
+    color: #94a3b8;
+    margin-right: 10px;
+}
+
+.gain-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0a6644;
+    text-shadow: none;
+}
+
+/* ============================================
+   SENSOR GRID
+   ============================================ */
+
+.sensor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.sensor-type {
+    background: rgba(15, 23, 42, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(71, 85, 105, 0.4);
+}
+
+.sensor-type h4 {
+    margin-bottom: 12px;
+    color: #60a5fa;
+}
+
+.sensor-type ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sensor-type li {
+    padding: 5px 0;
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
+/* ============================================
+   ALERT LEVELS
+   ============================================ */
+
+.alert-levels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.alert-level {
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid;
+}
+
+.alert-level.info {
+    background: rgba(96, 165, 250, 0.1);
+    border-color: #60a5fa;
+}
+
+.alert-level.warning {
+    background: rgba(251, 191, 36, 0.1);
+    border-color: #fbbf24;
+}
+
+.alert-level.critical {
+    background: rgba(248, 113, 113, 0.1);
+    border-color: #f87171;
+}
+
+.alert-level h4 {
+    margin-bottom: 12px;
+}
+
+.alert-level p {
+    font-size: 13px;
+    color: #cbd5e1;
+    margin-bottom: 8px;
+}
+
+/* ============================================
+   METRICS GRID
+   ============================================ */
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.metric-card {
+    background: rgba(15, 23, 42, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(78, 222, 128, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+}
+
+.metric-name {
+    font-size: 12px;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+.metric-current {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0a6644;
+}
+
+.metric-target {
+    font-size: 11px;
+    color: #374151;
+}
+
+/* ============================================
+   FINANCIAL INDICATORS
+   ============================================ */
+
+.financial-indicators {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.indicator {
+    background: rgba(15, 23, 42, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    border: 1px solid rgba(78, 222, 128, 0.3);
+}
+
+.indicator-label {
+    font-size: 13px;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+.indicator-value {
+    font-size: 26px;
+    font-weight: 700;
+    color: #e0e6ed;
+}
+
+.indicator-value.success {
+    color: #0a6644;
+}
+
+/* ============================================
+   CARBON BALANCE
+   ============================================ */
+
+.carbon-balance {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.carbon-section {
+    background: rgba(15, 23, 42, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.carbon-section.emissions {
+    border-left: 4px solid #f87171;
+}
+
+.carbon-section.sequestration {
+    border-left: 4px solid #4ade80;
+}
+
+.carbon-section h4 {
+    margin-bottom: 15px;
+}
+
+.carbon-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.carbon-section li {
+    padding: 5px 0;
+    font-size: 14px;
+    color: #cbd5e1;
+}
+
+.carbon-balance-result {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.carbon-balance-result.success {
+    background: rgba(78, 222, 128, 0.15);
+    border: 2px solid #0F6B5B;
+    color: #0a4a3d;
+}
+
+.carbon-balance-result p {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #374151;
+}
+
+/* ============================================
+   CERTIFICATIONS
+   ============================================ */
+
+.certifications {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 15px;
+}
+
+.cert-card {
+    background: rgba(15, 23, 42, 0.7);
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid rgba(78, 222, 128, 0.3);
+}
+
+.cert-card h4 {
+    color: #4ade80;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.cert-status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.cert-status.success {
+    background: rgba(78, 222, 128, 0.2);
+    color: #4ade80;
+}
+
+.cert-status.warning {
+    background: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+}
+
+.cert-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cert-card li {
+    padding: 6px 0;
+    font-size: 14px;
+    color: #cbd5e1;
+}
+
+.cert-card p {
+    font-size: 14px;
+    color: #94a3b8;
+    margin: 15px 0 10px;
+    font-weight: 600;
+}
+
+/* ============================================
+   TIMELINE
+   ============================================ */
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 15px;
+    position: relative;
+    padding-left: 40px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #60a5fa, #4ade80);
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -32px;
+    top: 8px;
+    width: 15px;
+    height: 15px;
+    background: #4ade80;
+    border-radius: 50%;
+    border: 3px solid #0f172a;
+    box-shadow: 0 0 15px rgba(78, 222, 128, 0.5);
+}
+
+.timeline-year {
+    font-size: 16px;
+    font-weight: 700;
+    color: #4ade80;
+    margin-bottom: 8px;
+}
+
+.timeline-content {
+    background: rgba(15, 23, 42, 0.7);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(71, 85, 105, 0.4);
+}
+
+.timeline-content p {
+    font-size: 14px;
+    color: #cbd5e1;
+    margin-bottom: 8px;
+}
+
+.timeline-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* ============================================
+   EXECUTIVE SUMMARY
+   ============================================ */
+
+.footer-card {
+    background: linear-gradient(135deg, rgba(78, 222, 128, 0.05), rgba(96, 165, 250, 0.05));
+    border: 2px solid rgba(78, 222, 128, 0.3);
+}
+
+.executive-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.summary-section h4 {
+    color: #4ade80;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.summary-section ol {
+    margin-left: 20px;
+}
+
+.summary-section li {
+    padding: 8px 0;
+    font-size: 14px;
+    color: #cbd5e1;
+}
+
+.summary-section strong {
+    color: #60a5fa;
+}
+
+.quote {
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+    color: #4ade80;
+    margin: 30px 0;
+    padding: 20px;
+    border-top: 1px solid rgba(78, 222, 128, 0.3);
+    border-bottom: 1px solid rgba(78, 222, 128, 0.3);
+}
+
+.document-footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+.document-footer p {
+    margin: 8px 0;
+}
+
+/* ============================================
+   METADATA & UTILITIES
+   ============================================ */
+
+.metadata {
+    font-size: 13px;
+    color: #64748b;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+em {
+    color: #1a4a75;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .main-content {
+        padding: 25px;
+    }
+
+    .ref-grid,
+    .data-grid,
+    .scenario-comparison,
+    .carbon-balance {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar-nav {
+        width: 60px;
+    }
+
+    .nav-item {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .main-title {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+}

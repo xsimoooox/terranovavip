@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Terranova</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="lang-data.js"></script>
+  <script src="lang-system.js"></script>
+  <style>
+
+    .lang-switcher {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      gap: 10px;
+    }
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      transition: all 0.3s;
+    }
+    .lang-btn.active {
+      background: #C9A227;
+      border-color: #C9A227;
+    }
+    [dir="rtl"] .lang-switcher {
+      left: 20px;
+      right: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="fr">🇫🇷 FR</button>
+    <button class="lang-btn" data-lang="ar">🇲🇦 AR</button>
+  </div>
+  <div class="gaia-title">
+    <span class="gaia-text">terra</span><span class="eye-text">nova</span>
+  </div>
+  <div class="instruction-text" data-i18n="root_instruction">Click on Earth to continue >></div>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r69/three.min.js"></script>
+  <script src="scripts/threex.atmospherematerial.js"></script>
+  <!-- Stats.js removed -->
+  <script src="scripts/trackball-controls.js"></script>
+  <script src="scripts/axes.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="lang-data.js"></script>
+  <script src="lang-system.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,485 @@
+/* ============================================================
+   TERRANOVA — MOROCCAN LANDING PAGE (3D Globe)
+   ============================================================ */
+:root {
+  --moroccan-emerald: #0F6B5B;
+  --moroccan-gold: #C9A227;
+  --moroccan-terracotta: #C46A3A;
+  --moroccan-blue: #1F4E79;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center,
+      #060c08 0%,
+      #020704 60%,
+      #000000 100%);
+  transition: opacity 0.3s ease;
+}
+
+[dir="rtl"], .rtl-mode {
+  direction: rtl;
+}
+
+.rtl-mode .instruction-text {
+  left: 40px;
+  right: auto;
+}
+
+
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== Title ===== */
+.gaia-title {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  pointer-events: none;
+  z-index: 10;
+  letter-spacing: 0.05em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  flex-direction: column;
+}
+
+/* Moroccan gold glow atmosphere behind title */
+.gaia-title::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 160%;
+  height: 220%;
+  background: radial-gradient(ellipse, rgba(201, 162, 39, 0.18) 0%, rgba(15, 107, 91, 0.08) 40%, rgba(0, 0, 0, 0) 70%);
+  z-index: -1;
+  filter: blur(28px);
+  opacity: 0;
+  animation: atmosphericFadeIn 2s ease-out 1s forwards;
+}
+
+/* Subtle Moroccan ornament strip below title */
+.gaia-title::after {
+  content: '✦  ✦  ✦';
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  color: rgba(201, 162, 39, 0.6);
+  letter-spacing: 8px;
+  margin-top: 8px;
+  animation: fadeInDown 2s ease 2s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gaia-text {
+  display: inline-block;
+  color: var(--moroccan-emerald);
+  text-shadow:
+    0 0 8px rgba(15, 107, 91, 0.9),
+    0 0 25px rgba(15, 107, 91, 0.4),
+    0 0 50px rgba(201, 162, 39, 0.15);
+  transform: translateX(-100vw);
+  animation: slideInLeft 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.eye-text {
+  display: inline-block;
+  color: var(--moroccan-gold);
+  text-shadow:
+    0 0 8px rgba(201, 162, 39, 0.9),
+    0 0 25px rgba(201, 162, 39, 0.5),
+    0 0 50px rgba(196, 106, 58, 0.2);
+  transform: translateX(100vw);
+  animation: slideInRight 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100vw);
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100vw);
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes atmosphericFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.9;
+  }
+}
+
+/* ===== Moroccan geometric border lines (left & right decorations) ===== */
+body::before {
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg,
+      var(--moroccan-emerald),
+      var(--moroccan-gold),
+      var(--moroccan-terracotta),
+      var(--moroccan-blue),
+      var(--moroccan-emerald));
+  z-index: 100;
+  opacity: 0.7;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg,
+      var(--moroccan-blue),
+      var(--moroccan-terracotta),
+      var(--moroccan-gold),
+      var(--moroccan-emerald),
+      var(--moroccan-blue));
+  z-index: 100;
+  opacity: 0.7;
+}
+
+/* ===== Instruction text ===== */
+.instruction-text {
+  position: absolute;
+  bottom: 30px;
+  right: 50px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.9rem;
+  color: var(--moroccan-gold);
+  opacity: 0.8;
+  text-shadow: 0 0 10px rgba(201, 162, 39, 0.6);
+  pointer-events: none;
+  z-index: 10;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+}
+
+
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.gaia-title {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  pointer-events: none;
+  z-index: 10;
+  letter-spacing: 0.05em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+/* Background Blue Neon Atmosphere */
+.gaia-title::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150%;
+  height: 200%;
+  /* Blue neon glow as requested */
+  background: radial-gradient(circle, rgba(0, 100, 255, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: -1;
+  filter: blur(25px);
+  opacity: 0;
+  animation: atmosphericFadeIn 2s ease-out 1s forwards;
+}
+
+.gaia-text {
+  display: inline-block;
+  /* Darker Green "Gaia" */
+  color: #0f9d58;
+  text-shadow:
+    0 0 5px rgba(15, 157, 88, 0.8),
+    0 0 20px rgba(0, 100, 255, 0.6);
+  /* Blue hint mixed in */
+
+  /* Animation: Slide in from Left */
+  transform: translateX(-100vw);
+  animation: slideInLeft 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.eye-text {
+  display: inline-block;
+  /* White "Eye" */
+  color: #ffffff;
+  text-shadow:
+    0 0 5px rgba(255, 255, 255, 0.9),
+    0 0 20px rgba(0, 100, 255, 0.6);
+  /* Blue hint mixed in */
+
+  /* Animation: Slide in from Right */
+  transform: translateX(100vw);
+  animation: slideInRight 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Keyframes for smooth futuristic entry */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100vw);
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100vw);
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes atmosphericFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.8;
+  }
+}
+
+.instruction-text {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  color: #ffffff;
+  opacity: 0.8;
+  text-shadow: 0 0 10px rgba(0, 100, 255, 0.8);
+  pointer-events: none;
+  z-index: 10;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+}
+
+/* ===== Security Overlay ===== */
+#security-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(15px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+#security-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.security-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  border-radius: 20px;
+  padding: 40px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(74, 222, 128, 0.1);
+  animation: cardAppear 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes cardAppear {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.security-card h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.security-field {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.security-field label {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  margin-left: 5px;
+}
+
+.security-field input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 12px 15px;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.security-field input:focus {
+  outline: none;
+  border-color: #4ade80;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 10px rgba(74, 222, 128, 0.2);
+}
+
+.access-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #4ade80, #1a9e87);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 12px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(74, 222, 128, 0.3);
+}
+
+.access-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 222, 128, 0.4);
+  filter: brightness(1.1);
+}
+
+.access-btn:active {
+  transform: translateY(0);
+}

@@ -1,0 +1,912 @@
+/* ============================================================
+   TERRANOVA — RESPONSIVE STYLES (Mobile-First)
+   Breakpoints:
+     Mobile : 320px – 480px
+     Tablet : 481px – 1024px
+     Desktop: 1025px+
+   ============================================================ */
+
+/* ── Global fluid foundation ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+table {
+  width: 100%;
+}
+
+/* ── Prevent horizontal overflow globally ── */
+body {
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   HAMBURGER MENU BUTTON (visible on mobile / tablet)
+   ============================================================ */
+.hamburger-btn {
+  display: none;
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 9999;
+  background: var(--moroccan-emerald, #0F6B5B);
+  border: none;
+  border-radius: 10px;
+  width: 46px;
+  height: 46px;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  box-shadow: 0 4px 20px rgba(15, 107, 91, 0.35);
+  transition: all 0.3s ease;
+}
+
+.hamburger-btn:hover {
+  background: var(--moroccan-gold, #C9A227);
+  transform: scale(1.05);
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* X state when open */
+.hamburger-btn.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger-btn.is-open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger-btn.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Sidebar Overlay (dark backdrop on mobile) ── */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 500;
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* ============================================================
+   TABLET: 481px – 1024px
+   ============================================================ */
+@media (max-width: 1024px) {
+
+  /* Sidebar: slide off-screen, overlay activated by JS */
+  .sidebar-nav {
+    width: 260px !important;
+    transform: translateX(-100%);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 600;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  /* Show sidebar when open class is present */
+  .sidebar-nav.is-sidebar-open {
+    transform: translateX(0) !important;
+  }
+
+  /* Show overlay when sidebar open */
+  .sidebar-overlay.is-sidebar-open {
+    display: block;
+    opacity: 1;
+  }
+
+  /* Ensure all sidebar texts and icons are visible on the sliding sidebar */
+  .sidebar-header .gaia-text,
+  .sidebar-header .eye-text,
+  .sidebar-header::after {
+    display: inline !important;
+  }
+  .nav-text {
+    display: inline-block !important;
+  }
+  .nav-item {
+    justify-content: flex-start !important;
+  }
+
+  /* Hamburger visible on tablet */
+  .hamburger-btn {
+    display: flex;
+  }
+
+  /* Main content takes full width */
+  .main-content {
+    margin-left: 0 !important;
+    padding: 70px 20px 30px !important;
+  }
+
+  /* Hide the old sidebar-toggle-btn (replaced by hamburger) */
+  .sidebar-toggle-btn {
+    display: none !important;
+  }
+
+  /* Suppress the decorative bar that references the old sidebar width */
+  .dashboard-container::before,
+  .main-content::before {
+    left: 0 !important;
+  }
+
+  /* Grid layouts → 2 cols on tablet */
+  .detail-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px;
+  }
+
+  /* Scoring + Reference top section → stack vertically on tablet/mobile */
+  .top-score-grid,
+  .main-content > div[style*="grid-template-columns: 1fr 2fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  /* Zoning container */
+  #zoning-container[style*="grid-template-columns: repeat(3, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Map bottom panel full-width adaptation */
+  .bottom-panel {
+    width: 90% !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    padding: 10px 14px !important;
+  }
+
+  .date-controls {
+    width: 100% !important;
+  }
+
+  /* Ref grid: 2-column on tablet */
+  .ref-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+  }
+
+  /* Financial page chart grid */
+  .chart-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Fournisseurs grid */
+  .fournisseurs-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  }
+
+  /* KPI strip */
+  .kpi-strip {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Fin section padding */
+  .fin-section {
+    padding: 22px 18px !important;
+  }
+
+  /* Hero banner */
+  .fin-hero {
+    padding: 28px 22px !important;
+  }
+
+  .fin-hero h1 {
+    font-size: 20px !important;
+  }
+
+  /* Tables: allow horizontal scroll within container */
+  .fin-table,
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  .fin-table th,
+  .fin-table td {
+    white-space: normal;
+    min-width: 100px;
+  }
+
+  /* Main title reduce */
+  .main-title {
+    font-size: 20px !important;
+  }
+
+  h2 {
+    font-size: 17px !important;
+  }
+
+  h3 {
+    font-size: 14px !important;
+  }
+
+  /* Detail grid in diagnostics/agro sections */
+  .detail-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* carbon balance */
+  .carbon-balance {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* scenario comparison */
+  .scenario-comparison {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Budget layout */
+  .budget-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Rec grid */
+  .rec-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Data grid */
+  .data-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px;
+  }
+
+  /* Irrigation */
+  .irrigation-summary {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* ROI row */
+  .roi-row {
+    grid-template-columns: 70px 1fr 100px !important;
+    font-size: 12px;
+  }
+
+  /* Metric values scale */
+  .metric-value {
+    font-size: 18px !important;
+  }
+
+  /* FAB – keep but adjust position */
+  .fab-wrapper {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  /* Feedback modal width */
+  #feedback-modal {
+    width: 280px !important;
+    right: 15px !important;
+  }
+
+  /* Chat widget */
+  #chat-widget {
+    width: 300px !important;
+    right: 15px !important;
+  }
+
+  /* Map page sidebar (right strip) */
+  .sidebar {
+    width: 70px !important;
+  }
+
+  .sidebar-item {
+    padding: 10px 8px !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* Crop grid */
+  .crop-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* Analysis card */
+  .analysis-card {
+    padding: 30px 24px !important;
+    max-width: 94vw !important;
+  }
+
+  /* Map bottom panel */
+  .bottom-panel {
+    bottom: 12px;
+  }
+}
+
+/* ============================================================
+   MOBILE: 320px – 480px
+   ============================================================ */
+@media (max-width: 480px) {
+
+  /* Sidebar same as tablet but full-width on mobile */
+  .sidebar-nav {
+    width: 80vw !important;
+    max-width: 280px;
+  }
+
+  .hamburger-btn {
+    top: 10px;
+    left: 10px;
+    width: 42px;
+    height: 42px;
+  }
+
+  /* Main content */
+  .main-content {
+    padding: 65px 12px 20px !important;
+  }
+
+  /* Title sizes */
+  .main-title {
+    font-size: 16px !important;
+    line-height: 1.4;
+  }
+
+  h2 {
+    font-size: 14px !important;
+  }
+
+  h3 {
+    font-size: 13px !important;
+  }
+
+  h4 {
+    font-size: 12px !important;
+  }
+
+  /* Cards */
+  .card {
+    padding: 16px !important;
+    margin-bottom: 16px !important;
+    border-radius: 10px !important;
+  }
+
+  /* Score circle – scale down */
+  .card svg[width="160"] {
+    width: 130px !important;
+    height: 130px !important;
+  }
+
+  /* Top section (score + ref) */
+  .top-score-grid,
+  .main-content > div[style*="grid-template-columns: 1fr 2fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+
+  /* Data grid: single column on small mobile */
+  .data-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px;
+  }
+
+  /* Detail grid: full column */
+  .detail-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  /* Zoning */
+  #zoning-container[style*="grid-template-columns: repeat(3, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Ref grid: single column */
+  .ref-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Metric values */
+  .metric-value {
+    font-size: 16px !important;
+  }
+
+  .metric-label {
+    font-size: 11px !important;
+  }
+
+  /* Buttons – larger touch targets */
+  button, .nav-item, .nav-btn, .access-btn {
+    min-height: 44px;
+  }
+
+  /* Bigger inputs for touch */
+  input[type="email"],
+  input[type="password"],
+  input[type="text"],
+  input[type="number"],
+  select,
+  textarea {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    padding: 12px !important;
+    min-height: 44px;
+  }
+
+  /* Irrigation summary */
+  .irrigation-summary {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Scenario comparison */
+  .scenario-comparison {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Carbon balance */
+  .carbon-balance {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Executive summary / certifications */
+  .certifications,
+  .executive-summary {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* KPI strip */
+  .kpi-strip {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .kpi-card {
+    padding: 14px 10px !important;
+  }
+
+  .kpi-value {
+    font-size: 16px !important;
+  }
+
+  /* Financial hero */
+  .fin-hero {
+    padding: 20px 16px !important;
+    border-radius: 14px !important;
+  }
+
+  .fin-hero h1 {
+    font-size: 16px !important;
+  }
+
+  .fin-hero p {
+    font-size: 13px !important;
+  }
+
+  /* Fin section */
+  .fin-section {
+    padding: 16px 14px !important;
+    border-radius: 12px !important;
+  }
+
+  /* Chart containers */
+  .chart-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .chart-box canvas {
+    max-height: 220px !important;
+  }
+
+  /* Budget layout */
+  .budget-layout {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Rec grid */
+  .rec-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* ROI row */
+  .roi-row {
+    grid-template-columns: 60px 1fr 90px !important;
+    gap: 8px !important;
+    font-size: 11px;
+  }
+
+  .roi-year {
+    font-size: 10px !important;
+  }
+
+  /* Tables: scroll container */
+  .fin-table,
+  table[style*="width: 100%"] {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Fournisseurs grid */
+  .fournisseurs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .fournisseur-card {
+    padding: 16px !important;
+  }
+
+  .company-name {
+    font-size: 15px !important;
+  }
+
+  /* Cost/ROI flex row */
+  .cost-roi {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  /* Sidebar map: hide on small mobile, show toggle */
+  .map-page .sidebar {
+    width: 60px !important;
+  }
+
+  .sidebar-item span:last-child {
+    display: none;
+  }
+
+  /* Bottom panel map */
+  .bottom-panel {
+    width: 96% !important;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px 10px !important;
+  }
+
+  .brand {
+    font-size: 0.65rem !important;
+  }
+
+  #date-display {
+    font-size: 0.8rem !important;
+  }
+
+  /* Crop selection card */
+  .crop-selection-card {
+    padding: 24px 16px !important;
+    max-width: 96vw !important;
+  }
+
+  .crop-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .crop-item {
+    padding: 16px 10px !important;
+  }
+
+  .crop-image-container {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  .crop-icon {
+    font-size: 2.5rem !important;
+  }
+
+  .culture-question {
+    font-size: 1.4rem !important;
+    margin: 20px 0 16px !important;
+  }
+
+  .analysis-card {
+    padding: 20px 14px !important;
+    max-width: 96vw !important;
+    border-radius: 14px !important;
+  }
+
+  /* Security card */
+  .security-card {
+    padding: 24px 18px !important;
+    max-width: 92vw !important;
+    border-radius: 14px !important;
+  }
+
+  /* FAB & feedback */
+  .fab-wrapper {
+    bottom: 12px;
+    right: 12px;
+  }
+
+  .fab-main {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  #feedback-modal {
+    width: calc(100vw - 24px) !important;
+    right: 12px !important;
+    bottom: 80px !important;
+  }
+
+  #chat-widget {
+    width: calc(100vw - 24px) !important;
+    right: 12px !important;
+    bottom: 80px !important;
+  }
+
+  /* Sidebar navigation items text size */
+  .nav-item {
+    font-size: 13px !important;
+    padding: 10px 12px !important;
+  }
+
+  /* Scenario cards */
+  .scenario-card {
+    padding: 16px !important;
+  }
+
+  /* Alert box */
+  .alert-box {
+    font-size: 13px !important;
+    padding: 12px 14px !important;
+  }
+
+  /* Hero badge */
+  .hero-badge {
+    font-size: 10px !important;
+    padding: 5px 12px !important;
+  }
+
+  /* Ref value */
+  .ref-value {
+    font-size: 13px !important;
+    word-break: break-all;
+  }
+
+  /* Zellige strip */
+  div[style*="background: url"] {
+    background-size: auto 100% !important;
+  }
+
+  /* Quick access button */
+  #quick-access-btn {
+    padding: 12px 20px !important;
+    font-size: 12px !important;
+    width: 100%;
+  }
+
+  /* Guide overlay modal */
+  .guide-modal {
+    max-width: 96vw !important;
+    max-height: 90vh !important;
+    overflow-y: auto;
+  }
+}
+
+/* ============================================================
+   EXTRA SMALL: below 360px safety rules
+   ============================================================ */
+@media (max-width: 360px) {
+  .kpi-strip {
+    grid-template-columns: 1fr !important;
+  }
+
+  .data-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .crop-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .main-title {
+    font-size: 14px !important;
+  }
+}
+
+/* ============================================================
+   SMOOTH TRANSITIONS (performance-optimized)
+   ============================================================ */
+.sidebar-nav {
+  will-change: transform;
+}
+
+.main-content {
+  will-change: margin-left;
+  transition: margin-left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   TOUCH IMPROVEMENTS
+   ============================================================ */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover transforms that feel odd on touch */
+  .card:hover {
+    transform: none !important;
+  }
+
+  .nav-item:hover {
+    transform: none !important;
+  }
+
+  .fournisseur-card:hover {
+    transform: none !important;
+  }
+
+  .crop-item:hover {
+    transform: none !important;
+  }
+
+  .kpi-card:hover {
+    transform: none !important;
+  }
+
+  /* Bigger touch targets */
+  .nav-item {
+    min-height: 48px;
+  }
+
+  .fab-main {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  .fab-btn {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+
+/* ============================================================
+   MAP PAGE — responsive overrides for index.html
+   (the body has overflow: hidden for map, so use fixed positioning)
+   ============================================================ */
+@media (max-width: 1024px) {
+  /* Map sidebar (right strip) */
+  .sidebar {
+    width: 72px !important;
+    padding: 16px 0 !important;
+  }
+
+  .sidebar-item {
+    width: 90% !important;
+    gap: 6px !important;
+    padding: 10px 8px !important;
+    font-size: 0.9rem !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+
+  .sidebar-item span:last-of-type {
+    display: none;
+  }
+
+  /* Map extra controls move lower on tablet to avoid crowding */
+  .map-extra-controls {
+    top: 140px !important;
+    left: 12px !important;
+  }
+
+  /* Bottom panel */
+  .bottom-panel {
+    width: 88% !important;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* Crop selection in overlay */
+  .crop-selection-card {
+    padding: 28px 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Make map sidebar even slimmer or collapse it */
+  .sidebar {
+    width: 58px !important;
+  }
+
+  .sidebar-icon {
+    font-size: 1.6rem !important;
+    margin-bottom: 2px !important;
+  }
+
+  .dashboard-main {
+    padding: 6px 3px !important;
+  }
+
+  /* Bottom panel – full-width */
+  .bottom-panel {
+    width: 96% !important;
+    padding: 8px 10px !important;
+  }
+
+  #date-display {
+    font-size: 0.75rem !important;
+  }
+
+  /* Analysis card – full width */
+  .analysis-overlay > .analysis-card {
+    width: 96vw !important;
+    padding: 18px 12px !important;
+  }
+
+  .crop-selection-card {
+    width: 96vw !important;
+    padding: 18px 12px !important;
+  }
+
+  /* Map extra controls */
+  .map-extra-controls {
+    top: 120px !important;
+    left: 8px !important;
+    gap: 6px !important;
+  }
+
+  .map-extra-controls button {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  /* Leaflet zoom controls */
+  .leaflet-control-zoom {
+    margin-top: 60px !important;
+  }
+
+  /* Guide modal */
+  .guide-modal {
+    width: 94vw !important;
+    padding: 0;
+  }
+}
+
+/* ============================================================
+   GUIDE OVERLAY — responsive
+   ============================================================ */
+.guide-overlay {
+  z-index: 4000;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.guide-modal {
+  background: #fff;
+  border-radius: 18px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 480px) {
+  .guide-modal {
+    border-radius: 14px;
+    max-height: 85vh;
+  }
+}
